@@ -1,0 +1,121 @@
+
+{% extends 'base.html' %}
+{% load thumbnail %}
+{% block title %}{% endblock %}
+{% block description %}{% endblock %}
+{% block keywords %}{% endblock %}
+{% block canonical %}{% endblock %}
+{% block og:title %}{% endblock %}
+{% block og:description %}{% endblock %}
+{% block og:url %}{% endblock %}
+{% block twitter:title %}{% endblock %}
+{% block twitter:description %}{% endblock %}
+
+{% block og:image %}{% endblock %}
+{% block og:image:secure_url %}{% endblock %}
+{% block twitter:image %}{% endblock %}
+
+
+{% block body %}
+{% load static %}
+
+
+
+
+<div class="breadcrumbs">
+    <div class="container">
+        <div class="breadcrumbs__inner">
+            <ul class="breadcrumbs__list" itemscope itemtype="https://schema.org/BreadcrumbList">
+                <li class="breadcrumbs__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <a class="breadcrumbs__link" href="{% url 'home' %}" title="Главная" itemprop="item">
+                        <span itemprop="name">Главная</span>
+                        <meta itemprop="position" content="0">
+                    </a>
+                </li>
+                
+                <li class="breadcrumbs__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <a class="breadcrumbs__link" href="{% url 'search_results' %}" title="Результат поиска" itemprop="item">
+                        <span itemprop="name">Результат поиска</span>
+                        <meta itemprop="position" content="1">
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+<div class="block">
+    <div class="container">
+        <div class="block__inner">
+
+            <h1 class="title">Поиск: {{ query }}</h1>
+            <br>
+            <p class="block__sub">В наличии:</p>
+            {% if products.count > 0 %}
+            
+
+            {% include 'components/product_list.html' with slider='false' products=products big='product-list__item--big' size='350x350' %}
+
+            {% else %}
+            <div class="block__none">
+                Товары не найдены!
+                <br>
+                <br>
+            </div>
+            {% endif %}
+
+            {% if rossko %}
+
+            <p class="block__sub">Под заказ:</p>
+            
+            {% comment %} {{ cart.zakaz_summ }} {% endcomment %}
+           
+
+            <div class="for-search">
+
+                <div class="for-search__sort-wrap">
+                    <div class="sort-btn" id="sort-btn-price">Сортировать по цене</div>
+                    <div class="sort-btn" id="sort-btn-date">Сортировать по дате доставки</div>
+                </div>
+                {% for ros in rossko %}
+
+                    {% if ros.price != 0 and ros.date != 0 %}
+                    <div class="for-search__item">
+                        <div class="for-search__id">{{ros.id}}</div>
+                        <div class="for-search__brand">{{ros.brand}}</div>
+                        <div class="for-search__brand">{{ros.supplier}}</div>
+                        
+                        <div class="for-search__name">{{ros.name}}</div>
+                        <div class="for-search__price">{{ros.price | floatformat:2}}₽</div>
+                        <div >Срок поставки (дней): <b class="for-search__data"> {{ros.date}}</b></div>
+                        <div class="for-search__cart">
+
+                            
+                            
+                        <div class="for-search__btn" data-supplier="{{ros.supplier}}" data-token="{{ csrf_token }}" data-name="{{ros.name}}" data-price="{{ros.price | floatformat:2}}" data-quantity="1" data-id="{{ros.id}}" data-data="{{ros.date}}">
+                            <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M0.25 1.75C0.25 1.05964 0.809644 0.5 1.5 0.5H2.45492C3.87531 0.5 5.1738 1.30251 5.80902 2.57295L6.02254 3H22.1335C24.5325 3 26.3146 5.22156 25.7942 7.56349L24.4053 13.8135C24.024 15.5293 22.5022 16.75 20.7446 16.75H9.75543C7.99781 16.75 6.47601 15.5293 6.09473 13.8135L4.06315 4.67138L3.57295 3.69098C3.36121 3.2675 2.92838 3 2.45492 3H1.5C0.809644 3 0.25 2.44036 0.25 1.75ZM6.80827 5.5L8.5352 13.2712C8.66229 13.8431 9.16956 14.25 9.75543 14.25H20.7446C21.3304 14.25 21.8377 13.8431 21.9648 13.2712L23.3537 7.02116C23.5272 6.24052 22.9331 5.5 22.1335 5.5H6.80827ZM10.25 20.5C9.55964 20.5 9 21.0596 9 21.75C9 22.4404 9.55964 23 10.25 23C10.9404 23 11.5 22.4404 11.5 21.75C11.5 21.0596 10.9404 20.5 10.25 20.5ZM6.5 21.75C6.5 19.6789 8.17893 18 10.25 18C12.3211 18 14 19.6789 14 21.75C14 23.8211 12.3211 25.5 10.25 25.5C8.17893 25.5 6.5 23.8211 6.5 21.75ZM20.25 20.5C19.5596 20.5 19 21.0596 19 21.75C19 22.4404 19.5596 23 20.25 23C20.9404 23 21.5 22.4404 21.5 21.75C21.5 21.0596 20.9404 20.5 20.25 20.5ZM16.5 21.75C16.5 19.6789 18.1789 18 20.25 18C22.3211 18 24 19.6789 24 21.75C24 23.8211 22.3211 25.5 20.25 25.5C18.1789 25.5 16.5 23.8211 16.5 21.75Z" fill="black"></path>
+                            </svg>
+                        </div>
+                            
+                        </div>
+                    </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+            {% endif %}
+
+            
+            
+
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+{% endblock %}

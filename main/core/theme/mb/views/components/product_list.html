@@ -1,0 +1,91 @@
+{% load thumbnail %}
+{% load theme_static %}
+<div class="product-list">
+    
+        
+            
+    {% for product in products %}
+    <div class="product-list__item {{ big }}">
+
+        <a href="{{ product.get_absolute_url }}" class="product-list__top">
+
+            {% if product.thumb %}
+                {% thumbnail product.thumb "150x150" format="WEBP" padding=True as im %}
+                    <img loading="lazy" src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" alt="{{ product.name }}" class="product-list__thumb {% if product.images.first %}product-list__thumb--opacity{% endif %}">
+                {% endthumbnail %}
+
+            {% else %}
+                <img src="{% get_static 'images/noimage.webp' %}" class="product-list__thumb {% if product.images.first %}product-list__thumb--opacity{% endif %}" alt="">
+            {% endif %}
+            <div class="product-list__top-wrap">
+                {% if product.old_price %}
+                <div class="product-list__sale {% if product.new == True %}product-list__sale--right{% endif %}">
+                    -{{ product.get_sale | floatformat:0 }}%
+                </div>
+                {% endif %}
+                {% if product.new == True %}
+                <div class="product-list__new">
+                    New
+                </div>
+                {% endif %}
+               
+            </div>
+            
+
+        </a>
+
+        <div class="product-list__middle">
+            <h3 class="product-list__title"><a href="{{ product.get_absolute_url }}">{{ product.name }}</a></h3>
+
+            <div class="product-list__char-list">
+
+                {% for char in product.chars.all %}
+                    {% if forloop.counter <= 4 %}
+                    <div class="product-list__char">
+                        <p class="product-list__char-name">{{ char.char_name }}</p>
+                        <p class="product-list__char-value">{{ char.char_value }}</p>
+
+                    </div>
+                    {% endif %}
+                {% endfor %}
+                
+
+
+
+            </div>
+
+        </div>
+
+        <div class="product-list__bottom">
+            
+            <div class="product-list__prices">
+                <p class="product-list__price">{{ product.price }}₽</p>
+                {% if product.old_price %}
+                    <p class="product-list__old">{{ product.old_price }}₽</p>
+                {% endif %}
+                <div class="product-list__status product-list__status--true">
+                    в наличии
+                </div>
+            </div>
+
+            
+
+            <form class="product-list__form" action="{% url "cart:cart_add" product.id %}" method="post">
+                {% csrf_token %}
+                <input type="text" name="quantity" hidden value="1">
+                <input type="hidden" name="update" value="False" id="id_update">
+               
+                <button class="product-list__btn">В Корзину</button>
+            </form>
+
+        </div>
+
+
+
+    </div>
+    {% endfor %}
+
+       
+    
+
+</div>

@@ -1,0 +1,81 @@
+{% load thumbnail %}
+{% load theme_static %}
+<div class="product-list {{ slider }}">
+    
+        
+            
+    {% for product in products %}
+    <div class="product-list__item {{ big }}">
+
+        <a href="{{ product.get_absolute_url }}" class="product-list__top">
+
+
+            
+            {% if product.thumb %}
+                {% thumbnail product.thumb size format="WEBP" padding=True as im %}
+                    <img loading="lazy" src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" alt="{{ product.name }}" class="product-list__thumb {% if product.images.first %}product-list__thumb--opacity{% endif %}">
+                {% endthumbnail %}
+
+            {% else %}
+                <img src="{% get_static 'images/noimage-big.webp' %}" class="product-list__thumb {% if product.images.first %}product-list__thumb--opacity{% endif %}" alt="">
+            {% endif %}
+            <div class="product-list__top-wrap">
+                {% if product.old_price %}
+                <div class="product-list__sale {% if product.new == True %}product-list__sale--right{% endif %}">
+                    -{{ product.get_sale | floatformat:0 }}%
+                </div>
+                {% endif %}
+                {% if product.new == True %}
+                <div class="product-list__new">
+                    New
+                </div>
+                {% endif %}
+               
+            </div>
+            
+
+        </a>
+
+        <div class="product-list__middle">
+            <h3 class="product-list__title"><a href="{{ product.get_absolute_url }}">{{ product.name }}</a></h3>
+
+            
+            
+
+        </div>
+
+        <div class="product-list__bottom">
+            
+            <div class="product-list__prices">
+                <p class="product-list__price">{{ product.price }}₽</p>
+                {% if product.old_price %}
+                    <p class="product-list__old">{{ product.old_price }}₽</p>
+                {% endif %}
+                
+            </div>
+
+            
+
+            <form class="product-list__form" action="{% url "cart:cart_add" product.id %}" method="post">
+                {% csrf_token %}
+                <input type="text" name="quantity" hidden value="1">
+                <input type="hidden" name="update" value="False" id="id_update">
+               
+                <button class="product-list__btn">
+                    <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M0.25 1.75C0.25 1.05964 0.809644 0.5 1.5 0.5H2.45492C3.87531 0.5 5.1738 1.30251 5.80902 2.57295L6.02254 3H22.1335C24.5325 3 26.3146 5.22156 25.7942 7.56349L24.4053 13.8135C24.024 15.5293 22.5022 16.75 20.7446 16.75H9.75543C7.99781 16.75 6.47601 15.5293 6.09473 13.8135L4.06315 4.67138L3.57295 3.69098C3.36121 3.2675 2.92838 3 2.45492 3H1.5C0.809644 3 0.25 2.44036 0.25 1.75ZM6.80827 5.5L8.5352 13.2712C8.66229 13.8431 9.16956 14.25 9.75543 14.25H20.7446C21.3304 14.25 21.8377 13.8431 21.9648 13.2712L23.3537 7.02116C23.5272 6.24052 22.9331 5.5 22.1335 5.5H6.80827ZM10.25 20.5C9.55964 20.5 9 21.0596 9 21.75C9 22.4404 9.55964 23 10.25 23C10.9404 23 11.5 22.4404 11.5 21.75C11.5 21.0596 10.9404 20.5 10.25 20.5ZM6.5 21.75C6.5 19.6789 8.17893 18 10.25 18C12.3211 18 14 19.6789 14 21.75C14 23.8211 12.3211 25.5 10.25 25.5C8.17893 25.5 6.5 23.8211 6.5 21.75ZM20.25 20.5C19.5596 20.5 19 21.0596 19 21.75C19 22.4404 19.5596 23 20.25 23C20.9404 23 21.5 22.4404 21.5 21.75C21.5 21.0596 20.9404 20.5 20.25 20.5ZM16.5 21.75C16.5 19.6789 18.1789 18 20.25 18C22.3211 18 24 19.6789 24 21.75C24 23.8211 22.3211 25.5 20.25 25.5C18.1789 25.5 16.5 23.8211 16.5 21.75Z" fill="black"/>
+                    </svg>
+                </button>
+            </form>
+
+        </div>
+
+
+
+    </div>
+    {% endfor %}
+
+       
+    
+
+</div>

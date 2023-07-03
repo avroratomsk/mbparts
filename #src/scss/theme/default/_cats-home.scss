@@ -1,0 +1,64 @@
+.cats-home {
+    padding: 40px 0;
+    // .cats-home__inner
+
+    &__inner {
+    }
+
+    // .cats-home__row
+
+    &__row {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+
+        @media screen and (max-width: 1200px) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        @media screen and (max-width: 768px) {
+            grid-template-columns: repeat(1, 1fr);
+        }
+    }
+
+    // .cats-home__item
+
+    &__item {
+        display: flex;
+        align-items: center;
+        padding: 30px;
+        background: #EFEFEF;
+        color: #000000;
+        height: 114px;
+        position: relative;
+
+        &:hover {
+            background-color: var(--color-secondary);
+        }
+    }
+
+    // .cats-home__title
+
+    &__title {
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 20px;
+        text-transform: uppercase;
+        max-width: 240px;
+        position: relative;
+        z-index: 2;
+        
+
+        
+    }
+
+    // .cats-home__img
+
+    &__img {
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 1;
+    }
+}
+

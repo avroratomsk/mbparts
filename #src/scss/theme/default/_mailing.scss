@@ -1,0 +1,126 @@
+.mailing {
+    padding: 70px 0;
+    width: 100%;
+    background-color: #1A1A1A;
+    color: #fff;
+    @media screen and (max-width: 480px) {
+        display: none;
+    }
+    // .mailing__inner
+
+    &__inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        @media screen and (max-width: 992px) {
+            flex-direction: column;
+
+        }
+    }
+
+    // .mailing__left
+
+    &__left {
+        display: flex;
+        align-items: center;
+        @media screen and (max-width: 992px) {
+            margin-bottom: 20px;
+
+        }
+    }
+
+    // .mailing__wrap
+
+    &__wrap {
+    }
+
+    // .mailing__title
+
+    &__title {
+        font-weight: 800;
+        font-size: 22px;
+        line-height: 27px;
+        /* identical to box height */
+
+        text-transform: uppercase;
+    }
+
+    // .mailing__desc
+
+    &__desc {
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 25px;
+        /* or 179% */
+
+
+        color: #828282;
+    }
+
+    // .mailing__right
+
+    &__right {
+    }
+
+    // .mailing__form
+
+    &__form {
+        display: flex;
+        align-items: center;
+        position: relative;
+
+        svg {
+            position: absolute;
+            left: 30px;
+        }
+
+        
+    }
+
+    // .mailing__input
+
+    &__input {
+        padding: 21px 21px 20px 60px;
+        border: 1px solid #B2B2B2;
+        border-bottom-left-radius: 10px;
+        border-top-left-radius: 10px;
+        border-right: none;
+        background: none;
+        outline: none;
+        height: 65px;
+        min-width: 305px;
+        color: #fff;
+        &::placeholder {
+            font-weight: 700;
+            font-size: 14px;
+            line-height: 25px;
+            /* or 179% */
+
+
+            color: #828282;
+        }
+    }
+
+    // .mailing__btn
+
+    &__btn {
+        // position: absolute;
+        width: 169px;
+        height: 65px;
+        left: 1502px;
+        top: 3301px;
+        right: 0;
+        top: 0;
+        font-weight: 700;
+        font-size: 12px;
+        line-height: 15px;
+        text-transform: uppercase;
+        
+        color: #000000;
+        background: #FCBE06;
+        border: 1px solid #B2B2B2;
+        border-left: none;
+        border-bottom-right-radius: 10px;
+        border-top-right-radius: 10px;
+    }
+}

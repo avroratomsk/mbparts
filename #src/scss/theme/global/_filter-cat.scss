@@ -1,0 +1,33 @@
+.filter-cat {
+    display: flex;
+    align-items: center;
+    // .filter-cat__item
+
+    &__item {
+        padding: 8px 15px;
+        border-radius: 8px;
+        cursor: pointer;
+        margin-right: 15px;
+        display: flex;
+        align-items: center;
+        svg {
+            margin-left: 13px;
+            
+        }
+        // .filter-cat__item--active
+
+        &--active {
+            background-color: rgba(217, 217, 217, 0.3);
+            
+            
+            color: var(--color-primary);
+            svg {
+                
+                path {
+                    stroke: var(--color-primary);
+                }
+            }
+            
+        }
+    }
+}

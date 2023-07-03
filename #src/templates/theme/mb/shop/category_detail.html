@@ -1,0 +1,214 @@
+
+{% extends 'base.html' %}
+{% load thumbnail %}
+
+{% load thumbnail %}
+{% block title %}{% if category.meta_title %}{{ category.meta_title }}{% else %}{{ category.name }}{% endif %}{% endblock %}
+{% block description %}{% if category.meta_description %}{{ category.meta_description }}{% endif %}{% endblock %}
+{% block keywords %}{{ category.meta_keywords }}{% endblock %}
+{% block canonical %}{% url 'catalog' %}{% endblock %}
+{% block og:title %}{% if category.meta_title %}{{ category.meta_title }}{% else %}{{ category.name }}{% endif %}{% endblock %}
+{% block og:description %}{% if category.meta_description %}{{ category.meta_description }}{% endif %}{% endblock %}
+{% block og:url %}{% url 'catalog' %}{% endblock %}
+{% block twitter:title %}{% if category.meta_title %}{{ category.meta_title }}{% else %}{{ category.name }}{% endif %}{% endblock %}
+{% block twitter:description %}{% if category.meta_description %}{{ category.meta_description }}{% endif %}{% endblock %}
+
+{% block og:image %}{% if category.image %}{% thumbnail category.image "537x240" format="PNG" as im %}{{ im.url }}{% endthumbnail %}{% else %}{% thumbnail setup.social_image "537x240" format="PNG" as im %}{{ im.url }}{% endthumbnail %}{% endif %}{% endblock %}
+{% block og:image:secure_url %}{% if category.image %}{% thumbnail category.image "537x240" format="PNG" as im %}{{ im.url }}{% endthumbnail %}{% else %}{% thumbnail setup.social_image "537x240" format="PNG" as im %}{{ im.url }}{% endthumbnail %}{% endif %}{% endblock %}
+{% block twitter:image %}{% if category.image %}{% thumbnail category.image "537x240" format="PNG" as im %}{{ im.url }}{% endthumbnail %}{% else %}{% thumbnail setup.social_image "537x240" format="PNG" as im %}{{ im.url }}{% endthumbnail %}{% endif %}{% endblock %}
+
+
+{% block body %}
+{% load static %}
+<div class="breadcrumbs">
+    <div class="container">
+        <div class="breadcrumbs__inner">
+            <ul class="breadcrumbs__list" itemscope itemtype="https://schema.org/BreadcrumbList">
+                <li class="breadcrumbs__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <a class="breadcrumbs__link" href="{% url 'home' %}" title="Главная" itemprop="item">
+                        <span itemprop="name">Главная</span>
+                        <meta itemprop="position" content="0">
+                    </a>
+                </li>
+                
+                <li class="breadcrumbs__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <a class="breadcrumbs__link" href="{% url 'catalog' %}" title="Каталог" itemprop="item">
+                        <span itemprop="name">Каталог</span>
+                        <meta itemprop="position" content="1">
+                    </a>
+                </li>
+                {% if category.parent %}
+
+                <li class="breadcrumbs__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <a class="breadcrumbs__link" href="{{ category.parent.get_absolute_url }}" title="{{ category.parent.name }}" itemprop="item">
+                        <span itemprop="name">{{ category.parent.name }}</span>
+                        <meta itemprop="position" content="2">
+                    </a>
+                </li>
+                
+
+                <li class="breadcrumbs__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <a class="breadcrumbs__link" href="{{ category.get_absolute_url }}" title="{{ category.name }}" itemprop="item">
+                        <span itemprop="name">{{ category.name }}</span>
+                        <meta itemprop="position" content="3">
+                    </a>
+                </li>
+                
+                {% else %}
+                <li class="breadcrumbs__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <a class="breadcrumbs__link" href="{{ category.get_absolute_url }}" title="{{ category.name }}" itemprop="item">
+                        <span itemprop="name">{{ category.name }}</span>
+                        <meta itemprop="position" content="2">
+                    </a>
+                </li>
+                
+                {% endif %}
+                
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="banner">
+    <div class="container">
+        <div class="banner__inner">
+
+            <h1 class="banner__title">{% if category.meta_h1 %}{{ category.meta_h1 }}{% else %}{{ category.name }}{% endif %}</h1>
+
+
+            <div class="filter-cat">
+                <div class="filter-cat__item filter-cat__item--active">
+                    Двигатель Mers
+
+                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M0.765137 10.9493L5.87607 5.83841L10.987 10.9493" stroke="#808080" stroke-width="2"/>
+                        <path d="M10.9873 0.949341L5.87637 6.06027L0.765442 0.94934" stroke="#808080" stroke-width="2"/>
+                    </svg>
+                        
+
+                </div>
+                <div class="filter-cat__item filter-cat__item--active">
+                    Двигатель Mers
+
+                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M0.765137 10.9493L5.87607 5.83841L10.987 10.9493" stroke="#808080" stroke-width="2"/>
+                        <path d="M10.9873 0.949341L5.87637 6.06027L0.765442 0.94934" stroke="#808080" stroke-width="2"/>
+                    </svg>
+                        
+
+                </div>
+                <div class="filter-cat__item">
+                    Очистить фильтры
+
+                    
+                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M0.765137 10.9493L5.87607 5.83841L10.987 10.9493" stroke="#808080" stroke-width="2"/>
+                        <path d="M10.9873 0.949341L5.87637 6.06027L0.765442 0.94934" stroke="#808080" stroke-width="2"/>
+                    </svg>
+    
+                        
+
+                </div>
+            </div>
+
+
+
+
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<div class="catalog">
+    
+    <div class="container">
+        <div class="catalog__inner">
+
+            {% include 'components/catalog__sidebar.html'  %}
+
+            
+            <div class="catalog__list">
+                <div class="catalog__refresh">
+                    {% comment %} {% include 'components/sort.html'  %} {% endcomment %}
+                    {% include 'components/product_list.html' with products=products big='' size='186x186' %}
+                    
+                                        
+
+                    {% load pluralize %}
+                    {% if products.paginator.num_pages > 1 %}
+                    <div class="pagination__wrap">
+
+                        <div class="pagination__count">
+                            Всего {{ products.paginator.count}} {{ products.paginator.count | rupluralize:"товар,товара,товаров" }}
+                        </div>
+
+
+                        <nav>
+                            <ul class="pagination">
+                                {% if products.has_previous %}
+                                    <li><a href="?page={{ products.previous_page_number }}{% for key,value in request.GET.items %}{% ifnotequal key 'page' %}&{{ key }}={{ value }}{% endifnotequal %}{% endfor %}"> < </a> </li>
+                                {% endif %}
+
+
+                                
+
+                                {% for p in products.paginator.page_range %}
+                                    {% if products.number == p %}
+
+                                    <li class="active">
+                                        <a href="?page={{ p }}">{{ p }}</a>
+                                    </li>
+
+                                    {% elif p >= products.number|add:-2 and p <= products.number|add:2  %}
+                                    <li class="page-num">
+                                        <a href="?page={{ p }}">{{ p }}</a>
+                                    </li>
+                                    {% endif %}
+                                {% endfor %}
+
+
+                                {% if products.has_next %}
+                                    <li><a href="?page={{ products.next_page_number }}{% for key,value in request.GET.items %}{% ifnotequal key 'page' %}&{{ key }}={{ value }}{% endifnotequal %}{% endfor %}"> > </a> </li>
+                                {% endif %}
+                            </ul>
+                        </nav>
+
+
+                        <div class="pagination__limit">
+
+
+                        </div>
+
+
+                    </div>
+                    {% endif %}
+                    
+                </div>
+
+            </div>
+            
+        </div>
+    </div>
+    
+</div>
+
+{% if category.description %}
+
+    <div class="cat-description">
+        <div class="container">
+            <div class="cat-description__inner">
+                {{ category.description | safe }}
+
+            </div>
+        </div>
+
+
+
+    </div>
+
+{% endif %}
+
+{% endblock %}

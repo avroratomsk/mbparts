@@ -1,0 +1,284 @@
+{% load thumbnail %}
+
+<header class="header">
+
+  <div class="header__top">
+    <div class="container">
+      <div class="header__top-inner">
+
+        <nav class="header__top-nav">
+          <ul class="header__top-list">
+
+            {% for page in pages %}
+            {% if page.top_link %}
+            <li class="header__top-item"><a href="{{ page.get_absolute_url }}" class="header__top-link">{{ page.name
+                }}</a></li>
+            {% endif %}
+            {% endfor %}
+
+          </ul>
+
+
+        </nav>
+
+        {% if setup.work_time %}
+        <div class="header__time-wrap">
+          <p class="header__text">Режим работы магазина: </p>
+
+          <p class="header__top-time">{{ setup.work_time }},</p>
+          <p class="header__top-time">{{ setup.address }}</p>
+
+        </div>
+        {% endif %}
+
+      </div>
+    </div>
+  </div>
+
+
+  <div class="header__middle">
+    <div class="container">
+      <div class="header__middle-inner">
+
+
+        {% if request.path == '/' %}
+        {% if setup.logo_dark %}
+
+        {% thumbnail setup.logo_dark "250" format="WEBP" as im %}
+        <img src="{{ im.url }}" height="{{ im.height }}" alt="{{ setup.name }}" class="header__logo">
+        {% endthumbnail %}
+
+
+        {% else %}
+        <div class="header__logo">{{ setup.name }}</div>
+        {% endif %}
+        {% else %}
+        {% if setup.logo_dark %}
+        <a href="{% url 'home' %}" class="header__logo-wrap">
+          {% thumbnail setup.logo_dark "250" format="WEBP" crop="center" as im %}
+          <img src="{{ im.url }}" height="{{ im.height }}" alt="{{ setup.name }}" class="header__logo">
+          {% endthumbnail %}
+        </a>
+        {% else %}
+        <a href="{% url 'home' %}" class="header__logo">{{ setup.name }}</a>
+        {% endif %}
+        {% endif %}
+
+
+        <div class="header__middle-search">
+
+
+
+          {% comment %} <div class="header__middle-select">
+
+            <a href="#" class="header__middle-item">
+              Поиск по артикулу
+
+              <svg width="14" height="9" viewBox="0 0 14 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M7 8.16665C6.83577 8.16742 6.67303 8.13539 6.52134 8.07242C6.36966 8.00946 6.23207 7.91683 6.11667 7.79998L0.333332 1.96665C0.181015 1.73172 0.111979 1.45245 0.137292 1.17361C0.162604 0.894775 0.280799 0.632508 0.472931 0.428847C0.665063 0.225187 0.920007 0.0919284 1.1969 0.0504295C1.47379 0.00893063 1.7566 0.0615954 2 0.199982L7 5.19998L12 0.199982C12.2434 0.0615954 12.5262 0.00893063 12.8031 0.0504295C13.08 0.0919284 13.3349 0.225187 13.5271 0.428847C13.7192 0.632508 13.8374 0.894775 13.8627 1.17361C13.888 1.45245 13.819 1.73172 13.6667 1.96665L7.83333 7.79998C7.61248 8.02401 7.31437 8.15518 7 8.16665Z"
+                  fill="#B2B2B2" />
+              </svg>
+
+            </a>
+
+
+          </div> {% endcomment %}
+
+
+          <form action="{% url 'search_results' %}" class="header__middle-form">
+
+            <input type="text" class="header__middle-input" name="q" placeholder="Поиск" value="{{ query }}">
+
+
+            <button class="header__btn">
+
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M8.86088 0C13.7521 0 17.7218 3.96968 17.7218 8.86088C17.7218 13.7521 13.7521 17.7218 8.86088 17.7218C3.96968 17.7218 0 13.7521 0 8.86088C0 3.96968 3.96968 0 8.86088 0ZM8.86088 15.7527C12.6681 15.7527 15.7527 12.6681 15.7527 8.86088C15.7527 5.05267 12.6681 1.96909 8.86088 1.96909C5.05267 1.96909 1.96909 5.05267 1.96909 8.86088C1.96909 12.6681 5.05267 15.7527 8.86088 15.7527ZM16.5187 16.5187C16.9031 16.1342 17.5264 16.1342 17.9109 16.5185L19.3033 17.9104C19.6881 18.295 19.6881 18.9188 19.3034 19.3034C18.9188 19.6881 18.295 19.6881 17.9104 19.3033L16.5185 17.9109C16.1342 17.5264 16.1342 16.9031 16.5187 16.5187Z"
+                  fill="#B2B2B2" />
+              </svg>
+
+            </button>
+
+          </form>
+
+        </div>
+
+        <div class="header__middle-right">
+
+          <div class="search-icon header__search">
+
+            <?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+            <svg width="800px" height="800px" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" fill="none">
+              <path fill="#B2B2B2" fill-rule="evenodd"
+                d="M4 9a5 5 0 1110 0A5 5 0 014 9zm5-7a7 7 0 104.2 12.6.999.999 0 00.093.107l3 3a1 1 0 001.414-1.414l-3-3a.999.999 0 00-.107-.093A7 7 0 009 2z" />
+            </svg>
+          </div>
+
+          <div class="header__cart-wrap">
+            <a href="#" class="header__cart">
+
+
+              <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M1.66669 5.00004C1.66669 4.07957 2.41288 3.33337 3.33335 3.33337H4.60657C6.50043 3.33337 8.23175 4.40338 9.07871 6.09731L9.36341 6.66671H30.8446C34.0434 6.66671 36.4195 9.62879 35.7256 12.7514L33.8737 21.0847C33.3653 23.3724 31.3363 25 28.9928 25H14.3406C11.9971 25 9.96803 23.3724 9.45966 21.0847L6.75089 8.89522L6.09729 7.58802C5.81497 7.02338 5.23786 6.66671 4.60657 6.66671H3.33335C2.41288 6.66671 1.66669 5.92052 1.66669 5.00004ZM10.411 10L12.7136 20.3616C12.8831 21.1242 13.5594 21.6667 14.3406 21.6667H28.9928C29.7739 21.6667 30.4503 21.1242 30.6198 20.3616L32.4716 12.0283C32.7029 10.9874 31.9109 10 30.8446 10H10.411ZM15 30C14.0795 30 13.3334 30.7462 13.3334 31.6667C13.3334 32.5872 14.0795 33.3334 15 33.3334C15.9205 33.3334 16.6667 32.5872 16.6667 31.6667C16.6667 30.7462 15.9205 30 15 30ZM10 31.6667C10 28.9053 12.2386 26.6667 15 26.6667C17.7614 26.6667 20 28.9053 20 31.6667C20 34.4281 17.7614 36.6667 15 36.6667C12.2386 36.6667 10 34.4281 10 31.6667ZM28.3334 30C27.4129 30 26.6667 30.7462 26.6667 31.6667C26.6667 32.5872 27.4129 33.3334 28.3334 33.3334C29.2538 33.3334 30 32.5872 30 31.6667C30 30.7462 29.2538 30 28.3334 30ZM23.3334 31.6667C23.3334 28.9053 25.5719 26.6667 28.3334 26.6667C31.0948 26.6667 33.3334 28.9053 33.3334 31.6667C33.3334 34.4281 31.0948 36.6667 28.3334 36.6667C25.5719 36.6667 23.3334 34.4281 23.3334 31.6667Z"
+                  fill="#B2B2B2" />
+              </svg>
+
+
+
+              <div class="header__cart-coutn">
+
+                {% with total_items=cart|length %}
+                {% if cart|length > 0 %}
+
+                {{ total_items }}
+
+                {% else %}
+                0
+                {% endif %}
+                {% endwith %}
+
+
+              </div>
+            </a>
+          </div>
+
+
+          <a href="{% if request.session.user_profile_id %}{% url 'account:account_profile' %}{% else %}{% url 'account:my_login' %}{% endif %}"
+            class="header__lk">
+
+
+            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M20 6.66671C16.3181 6.66671 13.3333 9.65148 13.3333 13.3334C13.3333 17.0153 16.3181 20 20 20C23.6819 20 26.6667 17.0153 26.6667 13.3334C26.6667 9.65148 23.6819 6.66671 20 6.66671ZM26.0683 21.2823C28.4583 19.455 30 16.5742 30 13.3334C30 7.81053 25.5228 3.33337 20 3.33337C14.4771 3.33337 9.99999 7.81053 9.99999 13.3334C9.99999 16.5742 11.5417 19.455 13.9317 21.2823C12.2559 22.0236 10.7142 23.0727 9.39339 24.3934C8.37351 25.4133 7.51557 26.5651 6.83628 27.8086C5.58275 30.1032 6.09396 32.4429 7.50565 34.0973C8.86466 35.69 11.0417 36.6667 13.3333 36.6667H26.6667C28.9583 36.6667 31.1353 35.69 32.4943 34.0973C33.906 32.4429 34.4172 30.1032 33.1637 27.8086C32.4844 26.5651 31.6265 25.4133 30.6066 24.3934C29.2858 23.0727 27.7441 22.0236 26.0683 21.2823ZM20 23.3334C16.9058 23.3334 13.9383 24.5625 11.7504 26.7505C10.9571 27.5438 10.2899 28.4395 9.76159 29.4066C9.24998 30.3431 9.41502 31.1997 10.0413 31.9337C10.7203 32.7294 11.9431 33.3334 13.3333 33.3334H26.6667C28.0569 33.3334 29.2797 32.7294 29.9587 31.9337C30.585 31.1997 30.75 30.3431 30.2384 29.4066C29.7101 28.4395 29.0429 27.5438 28.2496 26.7505C26.0616 24.5625 23.0942 23.3334 20 23.3334Z"
+                fill="#B2B2B2" />
+            </svg>
+
+          </a>
+
+
+
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="header__bottom">
+    <div class="container">
+      <div class="header__bottom-inner">
+
+        <div class="navbar__wrap">
+          <ul class="navbar cf">
+
+            <li>
+              <a href="#" class="header__bottom-cat">
+                Каталоги
+
+                <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <line x1="7.5" x2="7.5" y2="15" stroke="black" />
+                  <line x1="15" y1="7.5" y2="7.5" stroke="black" />
+                </svg>
+
+              </a>
+
+              <ul class="glob-nav">
+
+                <div class="glob-nav__closer">
+
+
+
+                  <?xml version="1.0" encoding="UTF-8"?>
+                  <svg width="500px" height="500px" viewBox="0 0 500 500" version="1.1"
+                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <title>times</title>
+                    <g id="times" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                      <path
+                        d="M250,50 C258.284271,50 265,56.7124761 265,64.9956024 L265,235 L435.004398,235 C443.181407,235 449.82978,241.545011 449.996783,249.686104 L450,250 C450,258.284271 443.287524,265 435.004398,265 L265,265 L265,435.004398 C265,443.181407 258.454989,449.82978 250.313896,449.996783 L250,450 C241.715729,450 235,443.287524 235,435.004398 L235,265 L64.9956024,265 C56.7137599,265 50,258.286093 50,250 C50,241.715729 56.7124761,235 64.9956024,235 L235,235 L235,64.9956024 C235,56.8185933 241.545011,50.1702199 249.686104,50.0032168 L250,50 Z"
+                        fill="#000000"
+                        transform="translate(250.000000, 250.000000) rotate(-315.000000) translate(-250.000000, -250.000000) ">
+                      </path>
+                    </g>
+                  </svg>
+
+                </div>
+
+
+                {% for category in categorys %}
+
+                {% if category.top %}
+                {% include 'shop/category_rec.html' with category=category %}
+                {% endif %}
+
+                {% endfor %}
+
+
+              </ul>
+            </li>
+
+          </ul>
+
+        </div>
+
+
+
+
+
+
+        <div class="header__bottom-wrap">
+          <a href="{% url 'vin' %}" class="header__bottom-link">ЗАПРОСЫ ПО VIN </a>
+
+          <a href="{% url 'blog' %}" class="header__bottom-link">АКЦИИ/НОВОСТИ </a>
+        </div>
+
+        <div class="header__bottom-phone-wrap">
+          <a href="tel:{{ setup.get_phone }}" class="header__bottom-phone">{{ setup.phone }}</a>
+          <a href="{{ setup.whatsapp }}" class="header__bottom-phone">
+
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+              <path
+                d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z" />
+            </svg>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+</header>
+
+
+
+<div class="search">
+  <a href="#" class="search__closer">
+    <svg width="26" height="28" viewBox="0 0 26 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M5.85522 5.93945L13.1531 14.0505M13.1531 14.0505L20.451 22.1616M13.1531 14.0505L20.451 5.93945M13.1531 14.0505L5.85522 22.1616"
+        stroke="#333333" stroke-width="1.8766" stroke-linecap="round" stroke-linejoin="round"></path>
+    </svg>
+  </a>
+  <div class="container">
+    <div class="search__inner">
+      <p class="search__title">Поиск</p>
+
+      <form action="{% url 'search_results' %}" class="search__form">
+        <button class="search__btn">
+          <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M11.75 21.75C17.2728 21.75 21.75 17.2728 21.75 11.75C21.75 6.22715 17.2728 1.75 11.75 1.75C6.22715 1.75 1.75 6.22715 1.75 11.75C1.75 17.2728 6.22715 21.75 11.75 21.75Z"
+              stroke="#545454" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+            <path d="M24.25 24.25L18.8125 18.8125" stroke="#545454" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round"></path>
+          </svg>
+        </button>
+        <input name="q" type="text" class="search__input" placeholder="Искать товары">
+
+      </form>
+    </div>
+  </div>
+</div>

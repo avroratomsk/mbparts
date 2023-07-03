@@ -1,0 +1,75 @@
+.mark {
+    width: 100%;
+    margin: 0 auto;
+    padding: 40px 0;
+    // .mark__inner
+
+    &__inner {
+    }
+
+    // .mark__row
+
+    &__row {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    // .mark__col
+
+    &__col {
+        width: 20%;
+    }
+
+    // .mark__item
+
+    &__item {
+
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 30px;
+    }
+    
+
+    // .mark__buk
+
+    &__buk {
+        margin-right: 34px;
+        font-weight: 800;
+        font-size: 16px;
+        line-height: 20px;
+        /* identical to box height */
+        width: 36px;
+        height: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-transform: uppercase;
+
+        color: #FCBE06;
+
+
+        border: 2px solid #EBEBEB;
+        border-radius: 10px;
+    }
+    // .mark__item-wrap
+
+    &__item-wrap {
+        display: flex;
+        flex-direction: column;
+
+    }
+
+    // .mark__name
+
+    &__name {
+        font-size: 16px;
+        line-height: 20px;
+        margin-bottom: 15px;
+        color: #A0A0A0;
+
+        &:hover {
+            font-weight: 700;
+        }
+    }
+}
+

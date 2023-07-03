@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% load thumbnail %}
+{% block title %}{{ serv_setup.meta_title }}{% endblock %}
+{% block description %}{{ serv_setup.meta_description }}{% endblock %}
+{% block keywords %}{{ serv_setup.meta_keywords }}{% endblock %}
+{% block canonical %}{% url 'blog' %}{% endblock %}
+{% block og:title %}{{ serv_setup.meta_title }}{% endblock %}
+{% block og:description %}{{ serv_setup.meta_description }}{% endblock %}
+{% block og:url %}{% url 'blog' %}{% endblock %}
+{% block twitter:title %}{{ serv_setup.meta_title }}{% endblock %}
+{% block twitter:description %}{{ serv_setup.meta_description }}{% endblock %}
+
+{% block og:image %}{% endblock %}
+{% block og:image:secure_url %}{% endblock %}
+{% block twitter:image %}{% endblock %}
+
+
+{% block body %}
+{% load static %}
+
+
+
+
+<div class="breadcrumbs">
+  <div class="container">
+    <div class="breadcrumbs__inner">
+      <ul class="breadcrumbs__list" itemscope itemtype="https://schema.org/BreadcrumbList">
+        <li class="breadcrumbs__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a class="breadcrumbs__link" href="{% url 'home' %}" title="Главная" itemprop="item">
+            <span itemprop="name">Главная</span>
+            <meta itemprop="position" content="0">
+          </a>
+        </li>
+
+        <li class="breadcrumbs__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a class="breadcrumbs__link" href="{% url 'serv' %}" title="Услуги" itemprop="item">
+            <span itemprop="name">Услуги</span>
+            <meta itemprop="position" content="1">
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="banner">
+  <div class="container">
+    <div class="banner__inner">
+      <div class="banner__wrapper">
+        <h1 class="banner__title"><span>Услуги</span> нашего сервиса</h1>
+        <p class="banner__subtitle">
+          Высокий уровень сервиса и гарантия. Высокий уровень сервиса и гарантия
+        </p>
+        <a href="#" class="btn btn--primary btn--border_radius show-popup btn--pc">Записаться на диагностику</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="serv-list-inner">
+  <div class="container">
+    <div class="serv-list-inner__inner">
+      <p class="serv-list-inner__title">Услуги</p>
+      {% for serv in servs %}
+      <div class="serv-list-inner__item">
+        <div class="serv-list-inner__name">{{ serv.name }}</div>
+        {% if serv.min_srok %}
+        <div class="serv-list-inner__srok">{{ serv.min_srok }}</div>
+        {% endif %}
+        <p class="serv-list-inner__price">от {{ serv.price }}</p>
+      </div>
+      {% endfor %}
+    </div>
+    <a href="#" class="btn btn--primary btn--border_radius show-popup btn--mb">Записаться на диагностику</a>
+  </div>
+</div>
+</div>
+{% include 'components/calculate.html' %}
+
+{% endblock %}

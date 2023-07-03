@@ -1,0 +1,75 @@
+
+{% extends 'base.html' %}
+{% load thumbnail %}
+{% block title %}Запрос по VIN{% endblock %}
+{% block description %}Запрос по VIN{% endblock %}
+{% block keywords %}Запрос по VIN{% endblock %}
+{% block canonical %}{% url 'vin' %}{% endblock %}
+{% block og:title %}Запрос по VIN{% endblock %}
+{% block og:description %}Запрос по VIN{% endblock %}
+{% block og:url %}{% url 'vin' %}{% endblock %}
+{% block twitter:title %}Запрос по VIN{% endblock %}
+{% block twitter:description %}Запрос по VIN{% endblock %}
+
+{% block og:image %}{% endblock %}
+{% block og:image:secure_url %}{% endblock %}
+{% block twitter:image %}{% endblock %}
+
+
+{% block body %}
+{% load static %}
+
+
+
+
+<div class="breadcrumbs">
+    <div class="container">
+        <div class="breadcrumbs__inner">
+            <ul class="breadcrumbs__list" itemscope itemtype="https://schema.org/BreadcrumbList">
+                <li class="breadcrumbs__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <a class="breadcrumbs__link" href="{% url 'home' %}" title="Главная" itemprop="item">
+                        <span itemprop="name">Главная</span>
+                        <meta itemprop="position" content="0">
+                    </a>
+                </li>
+                
+                <li class="breadcrumbs__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <a class="breadcrumbs__link" href="{% url 'search_results' %}" title="Запрос по VIN" itemprop="item">
+                        <span itemprop="name">Запрос по VIN</span>
+                        <meta itemprop="position" content="1">
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+<div class="block">
+    <div class="container">
+        <div class="block__inner">
+
+          
+            <h1 class="title">Запрос по VIN</h1>
+
+            
+            <form action="{% url 'vin' %}"  class="block__form" method="post">
+                {% csrf_token %}
+
+                {{ vin_form.as_p }}
+
+
+                <button class="btn btn--primary">Отправить</button>
+
+            </form>
+
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+{% endblock %}

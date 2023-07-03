@@ -1,0 +1,15 @@
+{% if category %}
+   
+        <li><a  {% if category.children.count == 0 %}data-last="last"{% endif %} href="{{ category.get_absolute_url }}">{{ category.name }}</a>
+        
+        {% if category.children.all %}
+            <ul class="glob-nav__child">
+            {% for child in category.sort_children %}
+                {% include 'shop/category_rec.html' with category=child %}
+            {% endfor %}
+            </ul>
+        {% endif %}
+
+        </li>
+    
+{% endif %}

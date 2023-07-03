@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+
+
+
+
+{% block body %}
+
+
+<div class="cart-top">
+    <div class="container">
+        <div class="cart-top__inner">
+
+            <h1 class="cart-top__title">Оформление заказа</h1>
+
+        </div>
+    </div>
+</div>
+
+
+
+<form action="." method="post" class="order-detail">
+    <div class="container">
+        <div class="order-detail__inner">
+            <div class="order-detail__form">
+                <div class="order-form">
+                    {{ form.as_p }}
+                    
+                 
+                    
+                    {% csrf_token %}
+                </div>
+               
+            </div>
+            <div class="order-detail__data">
+                <ul>
+                    {% for item in cart %}
+                        {% with product=item.product %}
+                            <li>
+                                <p>{{ product.name }}</p>
+                                <br>
+                                
+                                <span>{{ item.quantity }} x {{ item.price }}₽</span>
+                            </li>
+                        {% endwith %}
+                    {% endfor %}
+                    {% for item in cart.get_zakaz %}
+                        
+                            <li>
+                                <p>{{ item.name }}</p>
+                                <br>
+                                
+                                <span>{{ item.quantity }} x {{ item.price }}₽</span>
+                            </li>
+                        
+                    {% endfor %}
+                    {% if cart.coupon %}
+                        <li class="subtotal">
+                            <p>Сумма</p>
+                            <p>{{ cart.get_total_price }}₽</p>
+                            
+                        </li>
+                        <li>
+                            <p>
+                                Купон "{{ cart.coupon.code }}" 
+                                (-{{ cart.coupon.discount }}%)
+                            </p>
+                            <p>
+
+                                - {{ cart.get_discount|floatformat:"2" }}₽
+                            </p>
+                        </li>
+                    {% endif %}
+                    <li>
+                        
+                        <p>Итого:</p>
+                        <p class="order-detail__total">{{ cart.get_total_price_after_discount|floatformat:"2" }}₽</p>
+                    </li>
+                </ul>
+
+                <select name="pay_method" id="" class="order-detail__input">
+                    <option value="Оплата картой на сайте">Оплата картой на сайте</option>
+                    <option value="При получении">При получении</option>
+
+
+                </select>
+               
+                <button class="btn btn--full">Оформить</button>
+            </div>
+
+
+        </div>
+    </div>
+</form>
+    
+   
+    
+{% endblock %}

@@ -1,0 +1,22 @@
+.blog-empty {
+    width: 100%;
+    padding: 80px 0;
+    height: 550px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    // .blog-empty__inner
+
+    &__inner {
+    }
+
+    // .blog-empty__title
+
+    &__title {
+        text-align: center;
+        font-size: 48px;
+        color: #000;
+        opacity: .5;
+        text-transform: uppercase;
+    }
+}

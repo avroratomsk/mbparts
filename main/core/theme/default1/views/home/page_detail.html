@@ -1,0 +1,140 @@
+{% extends 'base.html' %}
+{% load thumbnail %}
+{% block title %}{{ page.meta_title }}{% endblock %}
+{% block description %}{{ page.meta_description }}{% endblock %}
+{% block keywords %}{{ page.meta_keywords }}{% endblock %}
+{% block canonical %}{{ page.get_absolute_url }}{% endblock %}
+{% block og:title %}{{ page.meta_title }}{% endblock %}
+{% block og:description %}{{ page.meta_description }}{% endblock %}
+{% block og:url %}{{ page.get_absolute_url }}{% endblock %}
+{% block twitter:title %}{{ page.meta_title }}{% endblock %}
+{% block twitter:description %}{{ page.meta_description }}{% endblock %}
+
+{% block og:image %}{% if page.image %}{% thumbnail page.image "537x240" format="PNG" as im %}{{ im.url }}{% endthumbnail %}{% else %}{% thumbnail setup.social_image "537x240" format="PNG" as im %}{{ im.url }}{% endthumbnail %}{% endif %}{% endblock %}
+{% block og:image:secure_url %}{% if page.image %}{% thumbnail page.image "537x240" format="PNG" as im %}{{ im.url }}{% endthumbnail %}{% else %}{% thumbnail setup.social_image "537x240" format="PNG" as im %}{{ im.url }}{% endthumbnail %}{% endif %}{% endblock %}
+{% block twitter:image %}{% if page.image %}{% thumbnail page.image "537x240" format="PNG" as im %}{{ im.url }}{% endthumbnail %}{% else %}{% thumbnail setup.social_image "537x240" format="PNG" as im %}{{ im.url }}{% endthumbnail %}{% endif %}{% endblock %}
+
+{% block body %}
+{% load static %}
+{% load theme_static %}
+
+
+
+
+
+
+
+
+
+
+{% if page.get_absolute_url == '/kontakty/' %}
+
+
+<div class="breadcrumbs breadcrumbs--absolute">
+    <div class="container">
+        <div class="breadcrumbs__inner">
+            <ul class="breadcrumbs__list" itemscope itemtype="https://schema.org/BreadcrumbList">
+                <li class="breadcrumbs__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <a class="breadcrumbs__link" href="{% url 'home' %}" title="Главная" itemprop="item">
+                        <span itemprop="name">Главная</span>
+                        <meta itemprop="position" content="0">
+                    </a>
+                </li>
+                
+                <li class="breadcrumbs__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <a class="breadcrumbs__link" href="{{ page.get_absolute_url }}" title="{{ page.name }}" itemprop="item">
+                        <span itemprop="name">{{ page.name }}</span>
+                        <meta itemprop="position" content="1">
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+<div class="contact-block contact-block--light">
+    <div class="container">
+        <div class="contact-block__inner">
+
+            <h1 class="title">Как нас найти</h1>
+
+             <div class="contact-block__desc">
+                <p class="contact-block__address">
+                    г. Сургут, ул. Югорский тракт, 27а
+                </p>
+
+                <a class="contact-block__phone" href="mailto:zhitckow2012@yandex.ru">zhitckow2012@yandex.ru</a>
+                <a href="tel:{{ setup.get_phone }}" class="contact-block__phone">{{ setup.phone }}</a>
+            </div>
+
+
+            <a target="_blank" href="https://yandex.ru/maps/973/surgut/?from=mapframe&ll=73.347755%2C61.249951&mode=usermaps&source=mapframe&um=constructor%3A0b91e9a2501e10d38bea69bd6f0d00e39d7a58b6ab60a4920c9781a3f93e2d58&utm_source=mapframe&z=17" class="contact-block__link">
+                <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4.10731 13.7049V13.0361H3.43852H2.38646L14.1052 1.3174L25.8239 13.0361H24.7719H24.1031V13.7049V26.3695H16.1073V17.7049V17.0361H15.4385H12.7719H12.1031V17.7049V26.3695H4.10731V13.7049Z" stroke="white" stroke-width="1.33759"/>
+                </svg>
+
+            </a>
+
+        </div>
+    </div>
+
+    <img src="{% get_static 'images/map.png' %}" alt="" class="contact-block__bg">
+</div>
+
+
+{% else %}
+
+<div class="breadcrumbs">
+    <div class="container">
+        <div class="breadcrumbs__inner">
+            <ul class="breadcrumbs__list" itemscope itemtype="https://schema.org/BreadcrumbList">
+                <li class="breadcrumbs__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <a class="breadcrumbs__link" href="{% url 'home' %}" title="Главная" itemprop="item">
+                        <span itemprop="name">Главная</span>
+                        <meta itemprop="position" content="0">
+                    </a>
+                </li>
+                
+                <li class="breadcrumbs__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <a class="breadcrumbs__link" href="{{ page.get_absolute_url }}" title="{{ page.name }}" itemprop="item">
+                        <span itemprop="name">{{ page.name }}</span>
+                        <meta itemprop="position" content="1">
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="banner">
+    <div class="container">
+        <div class="banner__inner">
+             
+            <div class="banner__wrapper">
+                <h1 class="banner__title">{% if page.meta_h1 %}{{ page.meta_h1 }}{% else %}{{ page.name }}{% endif %}</h1>
+               
+            </div>
+        </div>
+    </div>
+  
+</div>
+
+
+<div class="page">
+    <div class="container">
+        <div class="page__inner">
+
+            {{ page.text | safe }}
+
+        </div>
+    </div>
+</div>
+
+{% endif %}
+
+
+
+
+
+{% endblock %}

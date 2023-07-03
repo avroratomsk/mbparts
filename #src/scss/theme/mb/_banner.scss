@@ -1,0 +1,43 @@
+.banner {
+    padding: 50px 0;
+
+    @media screen and (max-width: 620px) {
+      padding: 30px 0px 15px;
+    }
+    // .banner__inner
+
+    &__inner {
+        display: flex;
+        align-items: center;
+    }
+
+    // .banner__title
+
+    &__title {
+        margin-bottom: 10px;
+        font-weight: 700;
+        font-size: 40px;
+        line-height: 51px;
+        min-width: 300px;
+        span {
+            color: var(--color-primary);
+        }
+
+        @media screen and (max-width: 620px) {
+          font-size: 24px;
+        }
+    }
+
+    // .banner__subtitle
+
+    &__subtitle {
+        margin-bottom: 33px;
+        font-size: 20px;
+        line-height: 160%;
+
+        @media screen and (max-width: 620px) {
+          font-size: 16px;
+          margin-bottom: 20px;
+        }
+    }
+}

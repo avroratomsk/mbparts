@@ -1,0 +1,45 @@
+.calculate {
+    background-color: #0B0A11;
+    color: #fff;
+    margin-top: 50px;
+    // .calculate__inner
+
+    &__inner {
+        padding: 70px 0 100px;
+        position: relative;
+    }
+
+    // .calculate__title
+
+    &__title {
+        font-weight: 700;
+        font-size: 40px;
+        line-height: 51px;
+        margin-bottom: 10px;
+
+        span {
+            color: var(--color-primary);
+        }
+    }
+
+    // .calculate__subtitle
+
+    &__subtitle {
+        margin-bottom: 75px;
+        font-size: 20px;
+        line-height: 160%;
+    }
+
+    // .calculate__engine
+
+    &__engine {
+        position: absolute;
+        top: -50px;
+        right: -50px;
+        @media screen and (max-width: 1200px) {
+            right: 0;
+            top: 0;
+            
+        }
+    }
+}

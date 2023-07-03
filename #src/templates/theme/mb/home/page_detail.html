@@ -1,0 +1,248 @@
+{% extends 'base.html' %}
+{% load thumbnail %}
+{% block title %}{{ page.meta_title }}{% endblock %}
+{% block description %}{{ page.meta_description }}{% endblock %}
+{% block keywords %}{{ page.meta_keywords }}{% endblock %}
+{% block canonical %}{{ page.get_absolute_url }}{% endblock %}
+{% block og:title %}{{ page.meta_title }}{% endblock %}
+{% block og:description %}{{ page.meta_description }}{% endblock %}
+{% block og:url %}{{ page.get_absolute_url }}{% endblock %}
+{% block twitter:title %}{{ page.meta_title }}{% endblock %}
+{% block twitter:description %}{{ page.meta_description }}{% endblock %}
+
+{% block og:image %}{% if page.image %}{% thumbnail page.image "537x240" format="PNG" as im %}{{ im.url }}{% endthumbnail %}{% else %}{% thumbnail setup.social_image "537x240" format="PNG" as im %}{{ im.url }}{% endthumbnail %}{% endif %}{% endblock %}
+{% block og:image:secure_url %}{% if page.image %}{% thumbnail page.image "537x240" format="PNG" as im %}{{ im.url }}{% endthumbnail %}{% else %}{% thumbnail setup.social_image "537x240" format="PNG" as im %}{{ im.url }}{% endthumbnail %}{% endif %}{% endblock %}
+{% block twitter:image %}{% if page.image %}{% thumbnail page.image "537x240" format="PNG" as im %}{{ im.url }}{% endthumbnail %}{% else %}{% thumbnail setup.social_image "537x240" format="PNG" as im %}{{ im.url }}{% endthumbnail %}{% endif %}{% endblock %}
+
+{% block body %}
+{% load static %}
+{% load theme_static %}
+
+
+
+
+
+
+
+
+
+
+{% if page.get_absolute_url == '/kontakty/' %}
+
+
+<div class="breadcrumbs breadcrumbs--absolute">
+    <div class="container">
+        <div class="breadcrumbs__inner">
+            <ul class="breadcrumbs__list" itemscope itemtype="https://schema.org/BreadcrumbList">
+                <li class="breadcrumbs__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <a class="breadcrumbs__link" href="{% url 'home' %}" title="Главная" itemprop="item">
+                        <span itemprop="name">Главная</span>
+                        <meta itemprop="position" content="0">
+                    </a>
+                </li>
+                
+                <li class="breadcrumbs__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <a class="breadcrumbs__link" href="{{ page.get_absolute_url }}" title="{{ page.name }}" itemprop="item">
+                        <span itemprop="name">{{ page.name }}</span>
+                        <meta itemprop="position" content="1">
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+<div class="contact-block contact-block--light">
+    <div class="container">
+        <div class="contact-block__inner">
+            <h1 class="title">Как нас найти</h1>
+             <div class="contact-block__desc">
+                <p class="contact-block__address">
+                    г. Сургут, ул. Югорский тракт, 27а
+                </p>
+                <a class="contact-block__phone" href="mailto:MB-PARTS86@YANDEX.RU">MB-PARTS86@YANDEX.RU</a>
+                Магазин:    
+                <div style="display: flex">
+                    <a style="display:block;margin-right: 10px;" href="tel:555-875" class="contact-block__phone">555-875</a>
+                    <a style="display:block;margin-right: 10px;" href="tel:555-876" class="contact-block__phone">555-876</a>
+                    <a  href="tel:89227979181" class="contact-block__phone">8 (922) 797 91-81</a>
+
+                </div>
+                Автосервис:
+                <div style="display: flex">
+                    <a style="display:block;margin-right: 10px;" href="tel:600097" class="contact-block__phone">600097</a>
+                    <a href="tel:600097" class="contact-block__phone">600097</a>
+                </div>
+                
+                <p class="contact-block__address">
+                  ИП Житков Артем Николаевич
+                </p>
+                <p class="contact-block__address">
+                  ИНН 860229388753
+                </p>
+                <p class="contact-block__address">
+                  ОГРНИП 316861700098007 
+                </p>
+                <p class="contact-block__address">
+                  628403
+                </p>
+                <p class="contact-block__address">
+                  обл.Тюменская ХМАО-ЮГРА 
+                </p>
+                <p class="contact-block__address">
+                  г.Сургут ул.Сибирская 11Б кв 1
+                </p>
+
+                <div class="footer__soc">
+                    <a href="https://wa.me/79227979181" class="footer__link">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 0.96C5.91267 0.96 0.960032 5.91264 0.960032 12C0.960032 13.9008 1.45107 15.7699 2.38227 17.4192L0.977792 22.4304C0.931712 22.595 0.976352 22.7717 1.09539 22.8941C1.18707 22.9886 1.31187 23.04 1.44003 23.04C1.47843 23.04 1.51731 23.0352 1.55523 23.0261L6.78531 21.7306C8.38227 22.5878 10.1808 23.04 12 23.04C18.0874 23.04 23.04 18.0874 23.04 12C23.04 5.91264 18.0874 0.96 12 0.96ZM17.5536 15.8957C17.3175 16.5494 16.1847 17.1461 15.6404 17.2262C15.1517 17.2978 14.5335 17.3285 13.8548 17.1154C13.4434 16.9858 12.9154 16.8139 12.2391 16.5254C9.39603 15.313 7.53939 12.4862 7.39731 12.2995C7.25571 12.1128 6.24003 10.7822 6.24003 9.40512C6.24003 8.028 6.97203 7.35072 7.23219 7.0704C7.49235 6.79008 7.79907 6.72 7.98819 6.72C8.17731 6.72 8.36595 6.7224 8.53155 6.73008C8.70579 6.73872 8.93955 6.66432 9.16947 7.21056C9.40563 7.7712 9.97251 9.14832 10.0426 9.28896C10.1136 9.42912 10.1607 9.5928 10.0666 9.77952C9.97251 9.96624 9.92547 10.0829 9.78339 10.2466C9.64131 10.4102 9.48579 10.6114 9.35811 10.7371C9.21603 10.8768 9.06867 11.028 9.23379 11.3083C9.39891 11.5886 9.96771 12.505 10.8106 13.247C11.893 14.2003 12.8064 14.496 13.0896 14.6362C13.3728 14.7763 13.5384 14.7528 13.7036 14.5661C13.8687 14.3789 14.412 13.7486 14.6007 13.4688C14.7893 13.189 14.9784 13.235 15.2386 13.3286C15.4988 13.4218 16.8922 14.0986 17.1754 14.2387C17.4586 14.3789 17.6477 14.449 17.7188 14.5656C17.7898 14.6818 17.7898 15.2424 17.5536 15.8957Z" fill="#FEFCFF"></path>
+                        </svg> 
+                    </a>
+                    <a href="viber://chat?number=%2B9227979181" class="footer__link">
+                        <svg width="22" height="23" viewBox="0 0 22 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20.4949 5.315C20.1199 3.97625 19.3774 2.91875 18.2899 2.17062C16.9174 1.22375 15.3386 0.89 13.9755 0.685625C12.0893 0.404375 10.3811 0.365 8.75176 0.56375C7.22551 0.75125 6.07613 1.04937 5.02801 1.53125C2.97301 2.47625 1.73926 4.00437 1.36238 6.0725C1.17863 7.0775 1.05488 7.985 0.983633 8.85125C0.818633 10.8537 0.968633 12.6256 1.44113 14.2681C1.90238 15.8694 2.70676 17.0131 3.90113 17.765C4.20488 17.9563 4.59488 18.095 4.97176 18.2281C5.18551 18.3031 5.39363 18.3763 5.56426 18.4569C5.72176 18.53 5.72176 18.5431 5.71988 18.6744C5.70676 19.8125 5.71988 22.0437 5.71988 22.0437L5.72363 22.52H6.57863L6.71738 22.385C6.80926 22.2988 8.92801 20.2513 9.68363 19.4262L9.78676 19.3119C9.91613 19.1619 9.91613 19.1619 10.0493 19.16C11.0693 19.1394 12.1118 19.1 13.1468 19.0437C14.4011 18.9763 15.8543 18.8544 17.223 18.2844C18.4755 17.7613 19.3905 16.9306 19.9399 15.8169C20.5136 14.6544 20.853 13.3962 20.9805 11.9694C21.2055 9.46062 21.0461 7.28375 20.4949 5.315ZM15.9836 15.0706C15.6686 15.5825 15.1999 15.9388 14.6468 16.1694C14.2418 16.3381 13.8293 16.3025 13.4299 16.1337C10.0868 14.7181 7.46363 12.4887 5.73113 9.2825C5.37301 8.6225 5.12551 7.9025 4.84051 7.205C4.78238 7.0625 4.78613 6.89375 4.75988 6.73625C4.78426 5.60937 5.64863 4.97375 6.52238 4.7825C6.85613 4.7075 7.15238 4.82562 7.39988 5.06375C8.08613 5.71625 8.62801 6.47563 9.03676 7.32687C9.21488 7.7 9.13426 8.03 8.83051 8.3075C8.76676 8.36562 8.70113 8.41812 8.63176 8.47062C7.93801 8.99187 7.83676 9.3875 8.20613 10.1731C8.83613 11.51 9.88238 12.4081 11.2343 12.965C11.5905 13.1112 11.9261 13.0381 12.198 12.7494C12.2355 12.7119 12.2768 12.6744 12.303 12.6294C12.8355 11.7406 13.6099 11.8287 14.3243 12.335C14.793 12.6687 15.2486 13.0212 15.7118 13.3606C16.4186 13.88 16.413 14.3675 15.9836 15.0706ZM11.5493 6.2C11.3918 6.2 11.2343 6.21313 11.0786 6.23937C10.8161 6.2825 10.5705 6.10625 10.5255 5.84375C10.4824 5.58313 10.6586 5.33562 10.9211 5.2925C11.1274 5.25687 11.3393 5.24 11.5493 5.24C13.6286 5.24 15.3199 6.93125 15.3199 9.01062C15.3199 9.2225 15.303 9.43437 15.2674 9.63875C15.228 9.87312 15.0255 10.04 14.7949 10.04C14.7686 10.04 14.7424 10.0381 14.7143 10.0325C14.4536 9.98937 14.2774 9.74187 14.3205 9.48125C14.3468 9.3275 14.3599 9.17 14.3599 9.01062C14.3599 7.46187 13.098 6.2 11.5493 6.2ZM13.8799 9.08C13.8799 9.34437 13.6643 9.56 13.3999 9.56C13.1355 9.56 12.9199 9.34437 12.9199 9.08C12.9199 8.28687 12.273 7.64 11.4799 7.64C11.2155 7.64 10.9999 7.42437 10.9999 7.16C10.9999 6.89562 11.2155 6.68 11.4799 6.68C12.8036 6.68 13.8799 7.75625 13.8799 9.08ZM16.6211 10.1469C16.5705 10.37 16.3718 10.52 16.1524 10.52C16.1168 10.52 16.0811 10.5162 16.0455 10.5087C15.7868 10.4487 15.6255 10.1919 15.6836 9.93312C15.753 9.6275 15.7886 9.31062 15.7886 8.99187C15.7886 6.65937 13.8893 4.76 11.5568 4.76C11.238 4.76 10.9211 4.79562 10.6155 4.865C10.3568 4.925 10.0999 4.76187 10.0418 4.50312C9.98176 4.24437 10.1449 3.9875 10.4036 3.92937C10.7786 3.84313 11.1668 3.8 11.5568 3.8C14.4199 3.8 16.7486 6.12875 16.7486 8.99187C16.7486 9.38187 16.7055 9.77 16.6211 10.1469Z" fill="#FEFCFF"></path>
+                        </svg>  
+                    </a>
+                    <a href="tel:89227979181" class="footer__link">
+                        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M5.71992 0.915313C3.07448 0.915313 0.919922 3.06987 0.919922 5.71531V16.2753C0.919922 18.9208 3.07448 21.0753 5.71992 21.0753H16.2799C18.9254 21.0753 21.0799 18.9208 21.0799 16.2753V5.71531C21.0799 3.06987 18.9254 0.915313 16.2799 0.915313H5.71992ZM7.64273 4.77594C7.94417 4.7889 8.22101 4.95873 8.38805 5.21938C8.57813 5.51602 8.87311 5.9764 9.25711 6.57688C9.60751 7.12456 9.63194 7.83192 9.31898 8.40313L8.61586 9.40344C8.42578 9.67416 8.38787 10.0207 8.51555 10.3259C8.71427 10.8011 9.0995 11.5315 9.78398 12.2159C10.4685 12.9004 11.1988 13.2857 11.674 13.4844C11.9793 13.6121 12.3258 13.5741 12.5965 13.3841L13.5968 12.6809C14.168 12.368 14.8754 12.3929 15.423 12.7428C16.0235 13.1268 16.4839 13.4218 16.7805 13.6119C17.0412 13.7789 17.211 14.0557 17.224 14.3572C17.2979 16.0679 15.9725 16.7609 15.5871 16.7609C15.3202 16.7609 12.1118 17.1256 8.49305 13.5069C4.87433 9.88815 5.23898 6.67969 5.23898 6.41281C5.23898 6.02737 5.93201 4.70202 7.64273 4.77594Z" fill="#FEFCFF"></path>
+                        </svg>    
+                    </a>
+                </div>
+            </div>
+
+            <a target="_blank" href="https://yandex.ru/maps/973/surgut/?from=mapframe&ll=73.347755%2C61.249951&mode=usermaps&source=mapframe&um=constructor%3A0b91e9a2501e10d38bea69bd6f0d00e39d7a58b6ab60a4920c9781a3f93e2d58&utm_source=mapframe&z=17" class="contact-block__link">
+                <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4.10731 13.7049V13.0361H3.43852H2.38646L14.1052 1.3174L25.8239 13.0361H24.7719H24.1031V13.7049V26.3695H16.1073V17.7049V17.0361H15.4385H12.7719H12.1031V17.7049V26.3695H4.10731V13.7049Z" stroke="white" stroke-width="1.33759"/>
+                </svg>
+
+            </a>
+
+        </div>
+    </div>
+
+    <img src="{% get_static 'images/map.png' %}" alt="" class="contact-block__bg">
+</div>
+
+
+{% elif page.get_absolute_url == '/otzivy/' or page.name == 'Отзывы' %}
+
+    <div class="breadcrumbs breadcrumbs--dark">
+        <div class="container">
+            <div class="breadcrumbs__inner">
+                <ul class="breadcrumbs__list" itemscope itemtype="https://schema.org/BreadcrumbList">
+                    <li class="breadcrumbs__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                        <a class="breadcrumbs__link" href="{% url 'home' %}" title="Главная" itemprop="item">
+                            <span itemprop="name">Главная</span>
+                            <meta itemprop="position" content="0">
+                        </a>
+                    </li>
+                    
+                    <li class="breadcrumbs__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                        <a class="breadcrumbs__link" href="{{ page.get_absolute_url }}" title="{{ page.name }}" itemprop="item">
+                            <span itemprop="name">{{ page.name }}</span>
+                            <meta itemprop="position" content="1">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="block block--dark">
+       
+                    
+        <div class="rewiews">
+            
+            <div class="rewiews__inner">
+               
+                
+
+
+                <div class="rewiews__wrapper">
+                    <div class="rewiews__grid">
+
+                    {% for rev in reviews %}
+                        <div class="rewiews__item">
+
+                            <div class="rewiews__item-inner">
+                                {% comment %} <p class="rewiews__title">Диагностика 1</p> {% endcomment %}
+                                <p class="rewiews__text">{{ rev.text }}</p>
+                                <p class="rewiews__name">{{ rev.name }}, {{ rev.date }}</p>
+
+                            </div>
+                        </div>
+                    {% endfor %}
+                        
+
+
+                    </div>
+                </div>
+            </div>
+        
+        </div>
+                
+
+
+
+    </div>
+
+{% else %}
+
+    <div class="breadcrumbs">
+        <div class="container">
+            <div class="breadcrumbs__inner">
+                <ul class="breadcrumbs__list" itemscope itemtype="https://schema.org/BreadcrumbList">
+                    <li class="breadcrumbs__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                        <a class="breadcrumbs__link" href="{% url 'home' %}" title="Главная" itemprop="item">
+                            <span itemprop="name">Главная</span>
+                            <meta itemprop="position" content="0">
+                        </a>
+                    </li>
+                    
+                    <li class="breadcrumbs__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                        <a class="breadcrumbs__link" href="{{ page.get_absolute_url }}" title="{{ page.name }}" itemprop="item">
+                            <span itemprop="name">{{ page.name }}</span>
+                            <meta itemprop="position" content="1">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="banner">
+        <div class="container">
+            <div class="banner__inner">
+                
+                <div class="banner__wrapper">
+                    <h1 class="banner__title">{% if page.meta_h1 %}{{ page.meta_h1 }}{% else %}{{ page.name }}{% endif %}</h1>
+                
+                </div>
+            </div>
+        </div>
+    
+    </div>
+
+
+    <div class="page">
+        <div class="container">
+            <div class="page__inner">
+
+                {{ page.text | safe }}
+
+            </div>
+        </div>
+    </div>
+
+{% endif %}
+
+
+
+
+
+{% endblock %}

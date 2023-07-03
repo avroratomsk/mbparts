@@ -1,0 +1,73 @@
+.pagination {
+    list-style: none;
+    padding: 0;
+    
+
+
+    &__wrap { 
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 20px 0 0 0;
+    }
+
+    // .pagination__count
+    &__count {
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 19px;
+        /* identical to box height, or 158% */
+
+
+        /* Gray 3 */
+
+        color: #828282;
+    }
+
+    li {
+        display: inline-block;
+        
+
+        a {
+            color: rgba(0, 0, 0, 0.5);
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            line-height: 42px;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        &:last-child {
+
+            a {
+                border-radius: 50%;
+            }
+            
+        }
+        &:first-child {
+
+            a {
+                border-radius: 50%;
+            }
+            
+        }
+    }
+    li + li {
+        margin-left: 15px;
+    }
+    .active {
+
+        a {
+            color: #fff;
+            background-color: var(--color-primary);
+            border-radius: 8px!important;
+        }
+    }
+    .dots {
+        border: none;
+    }
+}

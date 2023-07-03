@@ -1,0 +1,41 @@
+.footer {
+    background: radial-gradient(100% 57600% at 0% 0%, #673AB7 0%, #651FFF 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
+    padding: 40px 0;
+    position: relative;
+    z-index: 99;
+    // .footer__inner
+
+    &__inner {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        @media screen and (max-width: 576px) {
+            flex-direction: column;
+        }
+    }
+
+    // .footer__soc
+
+    &__soc {
+        margin-right: 65px;
+        @media screen and (max-width: 576px) {
+            margin-right: 0;
+            margin-bottom: 20px;
+        }
+    }
+
+    // .footer__link
+
+    &__link {
+    }
+    &__link + &__link {
+        margin-left: 15px;
+    }
+
+    // .footer__allrights
+
+    &__allrights {
+        color: #fff;
+    }
+}
+

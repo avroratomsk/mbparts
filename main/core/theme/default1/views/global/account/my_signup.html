@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+
+{% block title %} {% endblock %}
+{% block description %} {% endblock %}
+{% block keywords %} {% endblock %}
+{% block canonical %} {% endblock %}
+{% block og:title %}{% endblock %}
+{% block og:description %} {% endblock %}
+{% block og:url %} {% endblock %}
+{% block twitter:title %}{% endblock %}
+{% block twitter:description %}{% endblock %}
+
+
+
+{% block body %}
+{% load static %}
+{% load thumbnail %}
+
+
+<div class="account">
+    <div class="container">
+        <div class="account__content">
+            
+           
+            <div class="account__data">
+
+
+                <div class="account__content-wrapper">
+                    
+                </div>
+                
+
+                
+                <form action="." method="post" class="account__form">
+
+                    <p class="account__title">Регистрация</p>
+           
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    {% if error %}
+                    <div class="error_phone">{{error}}</div><br>
+                    {% endif %}
+                    <div class="account__form-p">Уже зарегистрированы? <a href="{% url 'account:my_login' %}">Вход</a></div>
+                    <button class="btn btn--full">Отправить</button>
+
+                </form>
+                
+            </div>
+            
+            
+            
+        </div>
+
+    </div>
+</div>
+{% endblock %}

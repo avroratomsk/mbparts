@@ -1,0 +1,156 @@
+{% load thumbnail %}
+<header class="header {% if request.path != '/' %}header--relative{% endif %}">
+  <div class="container">
+    <div class="header__inner">
+      <div class="header__left">
+
+        {% if request.path == '/' %}
+        {% if setup.logo_dark %}
+
+        {% thumbnail setup.logo_dark "81x48" format="WEBP" crop="center" as im %}
+        <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" alt="{{ setup.name }}"
+          class="header__logo">
+        {% endthumbnail %}
+
+
+        {% else %}
+        <div class="header__logo">{{ setup.name }}</div>
+        {% endif %}
+        {% else %}
+        {% if setup.logo_dark %}
+        <a href="{% url 'home' %}" class="header__logo-wrap">
+          {% thumbnail setup.logo_dark "81x48" format="WEBP" crop="center" as im %}
+          <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" alt="{{ setup.name }}"
+            class="header__logo">
+          {% endthumbnail %}
+        </a>
+        {% else %}
+        <a href="{% url 'home' %}" class="header__logo">{{ setup.name }}</a>
+        {% endif %}
+        {% endif %}
+
+
+      </div>
+
+      <div class="header__row">
+        <nav class="header__nav">
+
+          <ul class="header__list" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+            <li class="header__item" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ItemList">
+              <meta itemprop="name" content="О компании" />
+              <a class="header__link" itemprop="url" href="/o-nas/">О Компании</a>
+            </li>
+            <li class="header__item" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ItemList">
+              <meta itemprop="name" content="Статьи" />
+              <a class="header__link" itemprop="url" href="{% url 'blog' %}">Статьи</a>
+            </li>
+            <li class="header__item" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ItemList">
+              <meta itemprop="name" content="Отзывы" />
+              <a class="header__link" itemprop="url" href="/otzivy/">Отзывы</a>
+            </li>
+            <li class="header__item" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ItemList">
+              <meta itemprop="name" content="Статьи" />
+              <a class="header__link" itemprop="url" href="/kontakty/">Контакты</a>
+            </li>
+            <li class="header__item" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ItemList">
+              <meta itemprop="name" content="Статьи" />
+              <a class="header__link" itemprop="url" href="{% url 'serv' %}">Услуги</a>
+            </li>
+            <li class="header__item header__item--last" itemprop="itemListElement" itemscope=""
+              itemtype="http://schema.org/ItemList">
+              <meta itemprop="name" content="Статьи" />
+              <a class="header__link" itemprop="url" href="{% url 'vin' %}">Поиск по каталогу</a>
+            </li>
+          </ul>
+        </nav>
+
+
+
+        <div class="header__right">
+          <a href="{% if request.session.user_profile_id %}{% url 'account:account_profile' %}{% else %}{% url 'account:my_login' %}{% endif %}"
+            class="header__lk header__btn">
+            <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M20 6.66671C16.3181 6.66671 13.3333 9.65148 13.3333 13.3334C13.3333 17.0153 16.3181 20 20 20C23.6819 20 26.6667 17.0153 26.6667 13.3334C26.6667 9.65148 23.6819 6.66671 20 6.66671ZM26.0683 21.2823C28.4583 19.455 30 16.5742 30 13.3334C30 7.81053 25.5228 3.33337 20 3.33337C14.4771 3.33337 9.99999 7.81053 9.99999 13.3334C9.99999 16.5742 11.5417 19.455 13.9317 21.2823C12.2559 22.0236 10.7142 23.0727 9.39339 24.3934C8.37351 25.4133 7.51557 26.5651 6.83628 27.8086C5.58275 30.1032 6.09396 32.4429 7.50565 34.0973C8.86466 35.69 11.0417 36.6667 13.3333 36.6667H26.6667C28.9583 36.6667 31.1353 35.69 32.4943 34.0973C33.906 32.4429 34.4172 30.1032 33.1637 27.8086C32.4844 26.5651 31.6265 25.4133 30.6066 24.3934C29.2858 23.0727 27.7441 22.0236 26.0683 21.2823ZM20 23.3334C16.9058 23.3334 13.9383 24.5625 11.7504 26.7505C10.9571 27.5438 10.2899 28.4395 9.76159 29.4066C9.24998 30.3431 9.41502 31.1997 10.0413 31.9337C10.7203 32.7294 11.9431 33.3334 13.3333 33.3334H26.6667C28.0569 33.3334 29.2797 32.7294 29.9587 31.9337C30.585 31.1997 30.75 30.3431 30.2384 29.4066C29.7101 28.4395 29.0429 27.5438 28.2496 26.7505C26.0616 24.5625 23.0942 23.3334 20 23.3334Z"
+                fill="#B2B2B2" />
+            </svg>
+          </a>
+
+
+          <a href="#" class="header__search header__btn">
+            <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g opacity="0.5">
+                <path d="M9.63306 9.3858L13.6458 13.3986" stroke="white" stroke-width="1.33759" />
+                <circle cx="6.62352" cy="6.37625" r="3.67836" stroke="white" stroke-width="1.33759" />
+              </g>
+            </svg>
+          </a>
+
+
+          <div id="headerCart">
+
+          </div>
+          <a class="header__home header__btn" href="{% url 'home' %}">
+            <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g opacity="0.5">
+                <path
+                  d="M13.3535 7.5771H12.9618V8.24589V14.265H9.6178V10.2523V9.58348H8.949H7.61142H6.94263V10.2523V14.265H3.59866V8.24589V7.5771H3.20689L8.28021 2.50378L13.3535 7.5771Z"
+                  stroke="white" stroke-width="1.33759" />
+                <mask id="mask0_0_484" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="2" y="8" width="13"
+                  height="7">
+                  <rect x="2.26111" y="14.9338" width="6.68793" height="12.0383" transform="rotate(-90 2.26111 14.9338)"
+                    fill="black" />
+                </mask>
+                <g mask="url(#mask0_0_484)">
+                  <path
+                    d="M13.3535 7.5771H12.9618V8.24589V14.265H9.6178V10.2523V9.58348H8.949H7.61142H6.94263V10.2523V14.265H3.59866V8.24589V7.5771H3.20689L8.28021 2.50378L13.3535 7.5771Z"
+                    stroke="white" stroke-width="1.33759" />
+                </g>
+              </g>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="header__mobile">
+        {{ setup.get_phone | safe }}
+        <div class="toggle-menu" id="menu">
+          <div class="toggle-section">
+            <a href="#" class="menu-btn">
+              <span></span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="search">
+  <a href="#" class="search__closer">
+    <svg width="26" height="28" viewBox="0 0 26 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M5.85522 5.93945L13.1531 14.0505M13.1531 14.0505L20.451 22.1616M13.1531 14.0505L20.451 5.93945M13.1531 14.0505L5.85522 22.1616"
+        stroke="#333333" stroke-width="1.8766" stroke-linecap="round" stroke-linejoin="round"></path>
+    </svg>
+  </a>
+  <div class="container">
+    <div class="search__inner">
+      <p class="search__title">Поиск</p>
+
+      <form action="{% url 'search_results' %}" class="search__form">
+        <button class="search__btn">
+          <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M11.75 21.75C17.2728 21.75 21.75 17.2728 21.75 11.75C21.75 6.22715 17.2728 1.75 11.75 1.75C6.22715 1.75 1.75 6.22715 1.75 11.75C1.75 17.2728 6.22715 21.75 11.75 21.75Z"
+              stroke="#545454" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+            <path d="M24.25 24.25L18.8125 18.8125" stroke="#545454" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round"></path>
+          </svg>
+        </button>
+        <input name="q" type="text" class="search__input" placeholder="Искать товары">
+
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,600 @@
+
+
+
+
+{"resources": 
+    [{
+        "id": 175114439, 
+        "article": "1942003", 
+        "brand": {"id": 711, "name": "GENERAL MOTORS"}, 
+        "name": "Масло моторное синтетическое Dexos 2 5W-30 5л (93165557) 1942003", 
+        "offers": [
+            {"warehouse": {
+                "id": 77180922,
+                 "name": "BERG SRG",
+                 "type": 1
+                 },
+                 "price": 2700,
+                 "average_period": 0, 
+                 "assured_period": 0, 
+                 "reliability": 100, 
+                 "is_transit": "False", 
+                 "quantity": 6, 
+                 "available_more": "False", 
+                 "multiplication_factor": 1, 
+                 "delivery_type": 1
+            }, 
+
+            {"warehouse": {
+                "id": 44,
+                 "name": "BERG EKB",
+                 "type": 2
+                 },
+                 "price": 2700,
+                 "average_period": 2, 
+                 "assured_period": 2, 
+                 "reliability": 100, 
+                 "is_transit": "False", 
+                 "quantity": 15, 
+                 "available_more": "True", 
+                 "multiplication_factor": 1, 
+                 "delivery_type": 1
+            }, 
+            {"warehouse": {
+                "id": 27820,
+                 "name": "BERG MSK",
+                 "type": 2
+                 },
+                 "price": 2700,
+                 "average_period": 5, 
+                 "assured_period": 5, 
+                 "reliability": 100, 
+                 "is_transit": "False", 
+                 "quantity": 15, 
+                 "available_more": "True", 
+                 "multiplication_factor": 1, 
+                 "delivery_type": 1
+            }, 
+            {"warehouse": {
+                "id": 54289307,
+                 "name": "AFA",
+                 "type": 3
+                 },
+                 "price": 2793,
+                 "average_period": 5, 
+                 "assured_period": 5, 
+                 "reliability": 84, 
+                 "is_transit": "False", 
+                 "quantity": 500, 
+                 "available_more": "False", 
+                 "multiplication_factor": 1, 
+                 "delivery_type": 1
+            }, 
+            {"warehouse": {
+                "id": 336,
+                 "name": "DMT",
+                 "type": 3
+                 },
+                 "price": 2793.47,
+                 "average_period": 6, 
+                 "assured_period": 6, 
+                 "reliability": 96, 
+                 "is_transit": "False", 
+                 "quantity": 100, 
+                 "available_more": "False", 
+                 "multiplication_factor": 1, 
+                 "delivery_type": 1
+            }, 
+            {"warehouse": {
+                "id": 167488755,
+                 "name": "JAS",
+                 "type": 3
+                 },
+                 "price": 2829.64,
+                 "average_period": 5, 
+                 "assured_period": 5, 
+                 "reliability": 92, 
+                 "is_transit": "False", 
+                 "quantity": 165, 
+                 "available_more": "False", 
+                 "multiplication_factor": 1, 
+                 "delivery_type": 1
+            }, 
+            {"warehouse": {
+                "id": 40543989,
+                 "name": "UTT",
+                 "type": 3
+                 },
+                 "price": 2903.12,
+                 "average_period": 6, 
+                 "assured_period": 6, 
+                 "reliability": 72, 
+                 "is_transit": "False", 
+                 "quantity": 278, 
+                 "available_more": "False", 
+                 "multiplication_factor": 1, 
+                 "delivery_type": 1
+            }, 
+            {"warehouse": {
+                "id": 41064089,
+                 "name": "APZ",
+                 "type": 3
+                 },
+                 "price": 2907,
+                 "average_period": 5, 
+                 "assured_period": 5, 
+                 "reliability": 94, 
+                 "is_transit": "False", 
+                 "quantity": 200, 
+                 "available_more": "False", 
+                 "multiplication_factor": 1, 
+                 "delivery_type": 1
+            }, 
+            {"warehouse": {
+                "id": 207704046,
+                 "name": "FGW",
+                 "type": 3
+                 },
+                 "price": 2907,
+                 "average_period": 8, 
+                 "assured_period": 8, 
+                 "reliability": 95, 
+                 "is_transit": "False", 
+                 "quantity": 100, 
+                 "available_more": "False", 
+                 "multiplication_factor": 1, 
+                 "delivery_type": 1
+            }, 
+            {"warehouse": {
+                "id": 107614302,
+                 "name": "KSD",
+                 "type": 3
+                 },
+                 "price": 3017.58,
+                 "average_period": 10, 
+                 "assured_period": 10, 
+                 "reliability": 60, 
+                 "is_transit": "False", 
+                 "quantity": 100, 
+                 "available_more": "False", 
+                 "multiplication_factor": 1, 
+                 "delivery_type": 1
+            }, 
+            {"warehouse": {
+                "id": 133404258,
+                 "name": "KED",
+                 "type": 3
+                 },
+                 "price": 3025,
+                 "average_period": 4, 
+                 "assured_period": 4, 
+                 "reliability": 84, 
+                 "is_transit": "False", 
+                 "quantity": 6, 
+                 "available_more": "False", 
+                 "multiplication_factor": 1, 
+                 "delivery_type": 1
+            }, 
+            {"warehouse": {
+                "id": 105066501,
+                 "name": "TTH",
+                 "type": 3
+                 },
+                 "price": 3032.4,
+                 "average_period": 5, 
+                 "assured_period": 5, 
+                 "reliability": 98, 
+                 "is_transit": "False", 
+                 "quantity": 68, 
+                 "available_more": "False", 
+                 "multiplication_factor": 1, 
+                 "delivery_type": 1
+            }, 
+            {"warehouse": {
+                "id": 37287047,
+                 "name": "PUSP",
+                 "type": 3
+                 },
+                 "price": 3034.91,
+                 "average_period": 8, 
+                 "assured_period": 8, 
+                 "reliability": 95, 
+                 "is_transit": "False", 
+                 "quantity": 200, 
+                 "available_more": "False", 
+                 "multiplication_factor": 1, 
+                 "delivery_type": 1
+            }, 
+            {"warehouse": {
+                "id": 29,
+                 "name": "DSA",
+                 "type": 3
+                 },
+                 "price": 3042.66,
+                 "average_period": 8, 
+                 "assured_period": 8, 
+                 "reliability": 92, 
+                 "is_transit": "False", 
+                 "quantity": 10, 
+                 "available_more": "False", 
+                 "multiplication_factor": 1, 
+                 "delivery_type": 1
+            }, 
+            {"warehouse": {
+                "id": 115541616,
+                 "name": "LFR",
+                 "type": 3
+                 },
+                 "price": 3060.9,
+                 "average_period": 8, 
+                 "assured_period": 8, 
+                 "reliability": 82, 
+                 "is_transit": "False", 
+                 "quantity": 50, 
+                 "available_more": "False", 
+                 "multiplication_factor": 1, 
+                 "delivery_type": 1
+            }, 
+            {"warehouse": {
+                "id": 16027311,
+                 "name": "FAX",
+                 "type": 3
+                 },
+                 "price": 3066.39,
+                 "average_period": 8, 
+                 "assured_period": 8, 
+                 "reliability": 92, 
+                 "is_transit": "False", 
+                 "quantity": 76, 
+                 "available_more": "False", 
+                 "multiplication_factor": 1, 
+                 "delivery_type": 1
+            }, 
+            {"warehouse": {
+                "id": 166267302,
+                 "name": "SRS",
+                 "type": 3
+                 },
+                 "price": 3159.91,
+                 "average_period": 6, 
+                 "assured_period": 6, 
+                 "reliability": 85, 
+                 "is_transit": "False", 
+                 "quantity": 200, 
+                 "available_more": "False", 
+                 "multiplication_factor": 1, 
+                 "delivery_type": 1
+            }, 
+            {"warehouse": {
+                "id": 100282785,
+                 "name": "RTY",
+                 "type": 3
+                 },
+                 "price": 3334.65,
+                 "average_period": 6, 
+                 "assured_period": 6, 
+                 "reliability": 84, 
+                 "is_transit": "False", 
+                 "quantity": 10, 
+                 "available_more": "False", 
+                 "multiplication_factor": 1, 
+                 "delivery_type": 1
+            }, 
+            {"warehouse": {
+                "id": 94203483,
+                 "name": "ААА",
+                 "type": 3
+                 },
+                 "price": 3334.65,
+                 "average_period": 6, 
+                 "assured_period": 6, 
+                 "reliability": 78, 
+                 "is_transit": "False", 
+                 "quantity": 10, 
+                 "available_more": "False", 
+                 "multiplication_factor": 1, 
+                 "delivery_type": 1
+            }, 
+            {"warehouse": {
+                "id": 114707931,
+                 "name": "NJI",
+                 "type": 3
+                 },
+                 "price": 3343.62,
+                 "average_period": 9, 
+                 "assured_period": 9, 
+                 "reliability": 73, 
+                 "is_transit": "False", 
+                 "quantity": 100, 
+                 "available_more": "False", 
+                 "multiplication_factor": 1, 
+                 "delivery_type": 1
+            }, 
+            {"warehouse": {
+                "id": 47871895,
+                 "name": "IBO",
+                 "type": 3
+                 },
+                 "price": 3344.76,
+                 "average_period": 6, 
+                 "assured_period": 6, 
+                 "reliability": 80, 
+                 "is_transit": "False", 
+                 "quantity": 17, 
+                 "available_more": "False", 
+                 "multiplication_factor": 1, 
+                 "delivery_type": 1
+            }, 
+            {"warehouse": {
+                "id": 102322800,
+                 "name": "DUB",
+                 "type": 3
+                 },
+                 "price": 3440.44,
+                 "average_period": 10, 
+                 "assured_period": 10, 
+                 "reliability": 39, 
+                 "is_transit": "False", 
+                 "quantity": 200, 
+                 "available_more": "False", 
+                 "multiplication_factor": 1, 
+                 "delivery_type": 1
+            }, 
+            {"warehouse": {
+                "id": 151014048,
+                 "name": "AGT",
+                 "type": 3
+                 },
+                 "price": 3611.52,
+                 "average_period": 9, 
+                 "assured_period": 9, 
+                 "reliability": 86, 
+                 "is_transit": "False", 
+                 "quantity": 55, 
+                 "available_more": "False", 
+                 "multiplication_factor": 1, 
+                 "delivery_type": 1
+            }, 
+            {"warehouse": {
+                "id": 70208745,
+                 "name": "PGD",
+                 "type": 3
+                 },
+                 "price": 3659.66,
+                 "average_period": 10, 
+                 "assured_period": 10, 
+                 "reliability": 70, 
+                 "is_transit": "False", 
+                 "quantity": 51, 
+                 "available_more": "False", 
+                 "multiplication_factor": 1, 
+                 "delivery_type": 1
+            }, 
+            {"warehouse": {
+                "id": 124081293,
+                 "name": "EVD",
+                 "type": 3
+                 },
+                 "price": 3661.38,
+                 "average_period": 17, 
+                 "assured_period": 17, 
+                 "reliability": 73, 
+                 "is_transit": "False", 
+                 "quantity": 101, 
+                 "available_more": "False", 
+                 "multiplication_factor": 1, 
+                 "delivery_type": 1
+            }, 
+            {"warehouse": {
+                "id": 146681517,
+                 "name": "AKR",
+                 "type": 3
+                 },
+                 "price": 3766.56,
+                 "average_period": 12, 
+                 "assured_period": 12, 
+                 "reliability": 77, 
+                 "is_transit": "False", 
+                 "quantity": 200, 
+                 "available_more": "False", 
+                 "multiplication_factor": 1, 
+                 "delivery_type": 1
+            }, 
+            {"warehouse": {
+                "id": 74783613,
+                 "name": "BHK",
+                 "type": 3
+                 },
+                 "price": 3933,
+                 "average_period": 6, 
+                 "assured_period": 6, 
+                 "reliability": 90, 
+                 "is_transit": "False", 
+                 "quantity": 8, 
+                 "available_more": "False", 
+                 "multiplication_factor": 1, 
+                 "delivery_type": 1
+            }, 
+            {"warehouse": {
+                "id": 114639438,
+                 "name": "OFG",
+                 "type": 3
+                 },
+                 "price": 4036.74,
+                 "average_period": 9, 
+                 "assured_period": 9, 
+                 "reliability": 63, 
+                 "is_transit": "False", 
+                 "quantity": 1, 
+                 "available_more": "False", 
+                 "multiplication_factor": 1, 
+                 "delivery_type": 1
+            }, 
+            {"warehouse": {
+                "id": 11005789,
+                 "name": "ESK",
+                 "type": 3
+                 },
+                 "price": 4241.04,
+                 "average_period": 9, 
+                 "assured_period": 9, 
+                 "reliability": 82, 
+                 "is_transit": "False", 
+                 "quantity": 1, 
+                 "available_more": "False", 
+                 "multiplication_factor": 1, 
+                 "delivery_type": 1
+            }, 
+            {"warehouse": {
+                "id": 21974947,
+                 "name": "DOOM",
+                 "type": 3
+                 },
+                 "price": 4379.5,
+                 "average_period": 9, 
+                 "assured_period": 9, 
+                 "reliability": 60, 
+                 "is_transit": "False", 
+                 "quantity": 71, 
+                 "available_more": "False", 
+                 "multiplication_factor": 1, 
+                 "delivery_type": 1
+            }, 
+            {"warehouse": {
+                "id": 115966206,
+                 "name": "DOOT",
+                 "type": 3
+                 },
+                 "price": 4432.9,
+                 "average_period": 8, 
+                 "assured_period": 8, 
+                 "reliability": 70, 
+                 "is_transit": "False", 
+                 "quantity": 60, 
+                 "available_more": "False", 
+                 "multiplication_factor": 1, 
+                 "delivery_type": 1
+            }, 
+            {"warehouse": {
+                "id": 141965367,
+                 "name": "RCI",
+                 "type": 3
+                 },
+                 "price": 4454.05,
+                 "average_period": 6, 
+                 "assured_period": 6, 
+                 "reliability": 90, 
+                 "is_transit": "False", 
+                 "quantity": 20, 
+                 "available_more": "False", 
+                 "multiplication_factor": 1, 
+                 "delivery_type": 1
+            }, 
+            {"warehouse": {
+                "id": 141965415,
+                 "name": "STD",
+                 "type": 3
+                 },
+                 "price": 4454.5,
+                 "average_period": 8, 
+                 "assured_period": 8, 
+                 "reliability": 79, 
+                 "is_transit": "False", 
+                 "quantity": 20, 
+                 "available_more": "False", 
+                 "multiplication_factor": 1, 
+                 "delivery_type": 1
+            }, 
+            {"warehouse": {
+                "id": 142603680,
+                 "name": "KIL",
+                 "type": 3
+                 },
+                 "price": 4490.43,
+                 "average_period": 2, 
+                 "assured_period": 2, 
+                 "reliability": 93, 
+                 "is_transit": "False", 
+                 "quantity": 20, 
+                 "available_more": "False", 
+                 "multiplication_factor": 1, 
+                 "delivery_type": 1
+            }, 
+            {"warehouse": {
+                "id": 5085317,
+                 "name": "GGP",
+                 "type": 3
+                 },
+                 "price": 4687.55,
+                 "average_period": 10, 
+                 "assured_period": 10, 
+                 "reliability": 78, 
+                 "is_transit": "False", 
+                 "quantity": 1, 
+                 "available_more": "False", 
+                 "multiplication_factor": 1, 
+                 "delivery_type": 1
+            }, 
+            {"warehouse": {
+                "id": 32921115,
+                 "name": "UHG",
+                 "type": 3
+                 },
+                 "price": 4885.6,
+                 "average_period": 5, 
+                 "assured_period": 5, 
+                 "reliability": 93, 
+                 "is_transit": "False", 
+                 "quantity": 2, 
+                 "available_more": "False", 
+                 "multiplication_factor": 1, 
+                 "delivery_type": 1
+            }, 
+            {"warehouse": {
+                "id": 61838223,
+                 "name": "AGP",
+                 "type": 3
+                 },
+                 "price": 5667.29,
+                 "average_period": 6, 
+                 "assured_period": 6, 
+                 "reliability": 94, 
+                 "is_transit": "False", 
+                 "quantity": 2, 
+                 "available_more": "False", 
+                 "multiplication_factor": 1, 
+                 "delivery_type": 1
+            }, 
+            {"warehouse": {
+                "id": 12921245,
+                 "name": "ACE",
+                 "type": 3
+                 },
+                 "price": 5930.96,
+                 "average_period": 5, 
+                 "assured_period": 5, 
+                 "reliability": 96, 
+                 "is_transit": "False", 
+                 "quantity": 3, 
+                 "available_more": "False", 
+                 "multiplication_factor": 1, 
+                 "delivery_type": 1
+            }, 
+            {"warehouse": {
+                "id": 48773241,
+                 "name": "OEI",
+                 "type": 3
+                 },
+                 "price": 6976.53,
+                 "average_period": 37, 
+                 "assured_period": 37, 
+                 "reliability": 56, 
+                 "is_transit": "False", 
+                 "quantity": 1, 
+                 "available_more": "False", 
+                 "multiplication_factor": 1, 
+                 "delivery_type": 1
+                }
+        ],
+
+            "source_idx": "0"}]}

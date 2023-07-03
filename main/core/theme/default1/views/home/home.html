@@ -1,0 +1,564 @@
+{% extends 'base.html' %}
+{% load thumbnail %}
+{% block title %}
+{{ setup.meta_title }}
+{% endblock %}
+{% block description %}
+{{ setup.meta_description }}
+{% endblock %}
+{% block keywords %}
+{{ setup.meta_keywords }}
+{% endblock %}
+{% block canonical %}
+{% url 'home' %}
+{% endblock %}
+{% block og:title %}
+{{ setup.meta_title }}
+{% endblock %}
+{% block og:description %}
+{{ setup.meta_description }}
+{% endblock %}
+{% block og:url %}
+{% url 'home' %}
+{% endblock %}
+{% block twitter:title %}
+{{ setup.meta_title }}
+{% endblock %}
+{% block twitter:description %}
+{{ setup.meta_description }}
+{% endblock %}
+{% block og:image %}
+{% thumbnail setup.social_image "537x240" format="PNG" as im %}
+{{ im.url }}
+{% endthumbnail %}
+{% endblock %}
+{% block og:image:secure_url %}
+{% thumbnail setup.social_image "537x240" format="PNG" as im %}
+{{ im.url }}
+{% endthumbnail %}
+{% endblock %}
+{% block twitter:image %}
+{% thumbnail setup.social_image "537x240" format="PNG" as im %}
+{{ im.url }}
+{% endthumbnail %}
+{% endblock %}
+
+
+
+
+{% block body %}
+{% load static %}
+{% load thumbnail %}
+{% load theme_static %}
+
+
+<div class="start">
+  <div class="container">
+    <div class="start__inner">
+      asdasdasdasd
+
+      <div class="start__left">
+
+        {% for slide in slides %}
+        {% if forloop.counter == 1 %}
+        <a href="{{ slide.link }}" class="start__item">
+
+          <div class="start__item-left">
+
+            <h3 class="start__title">{{ slide.title }}</h3>
+            <p class="start__sibtitle">{{ slide.text }}</p>
+
+
+          </div>
+
+          <img src="{{ slide.image.url }}" alt="{{ slide.title }}" class="start__img">
+
+        </a>
+        {% endif %}
+        {% endfor %}
+
+
+
+        <div class="start__left-bottom">
+          {% for slide in slides %}
+          {% if forloop.counter == 2 %}
+          <a href="{{ slide.link }}" class="start__left-bottom-item">
+
+            <div class="start__item-left">
+
+              <h3 class="start__title">{{ slide.title }}</h3>
+              <p class="start__sibtitle">{{ slide.text }}</p>
+
+
+            </div>
+
+            <img src="{{ slide.image.url }}" alt="{{ slide.title }}" class="start__img">
+
+
+          </a>
+          {% endif %}
+          {% endfor %}
+          {% for slide in slides %}
+          {% if forloop.counter == 3 %}
+          <a href="{{ slide.link }}" class="start__left-bottom-item">
+
+            <div class="start__item-left">
+
+              <h3 class="start__title">{{ slide.title }}</h3>
+              <p class="start__sibtitle">{{ slide.text }}</p>
+
+
+            </div>
+
+            <img src="{{ slide.image.url }}" alt="{{ slide.title }}" class="start__img">
+
+
+          </a>
+
+          {% endif %}
+          {% endfor %}
+
+        </div>
+
+
+      </div>
+
+      <div class="start__right">
+        {% for slide in slides %}
+        {% if forloop.counter == 4 %}
+
+        <a href="/catalog/?top=true" class="start__right-item">
+          <p class="start__right-top">{{ slide.name }}</p>
+
+          <h3 class="start__title">{{ slide.title }}</h3>
+          <p class="start__sibtitle">{{ slide.text }}</p>
+
+          <img src="{{ slide.image.url }}" alt="{{ slide.name }}" class="start__img">
+
+
+
+          <svg class="start__volna" width="395" height="206" viewBox="0 0 395 206" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <rect x="1" y="119.876" width="393" height="86.1222" fill="#FCBE06" />
+            <path
+              d="M165.336 38.0956C212.577 1.18604 394 1.18604 394 1.18604V98.5259V159.68H1V91.2887C1 91.2887 118.096 75.0051 165.336 38.0956Z"
+              fill="#FCBE06" stroke="#FCBE06" />
+          </svg>
+
+
+        </a>
+        {% endif %}
+        {% endfor %}
+      </div>
+
+
+    </div>
+  </div>
+</div>
+{% comment %}
+
+<div class="mark">
+  <div class="container">
+    <div class="mark__inner">
+
+      <div class="title__wrapper">
+
+        <h3 class="title">ПОДБОР ПО МАРКЕ АВТОМОБИЛЯ</h3>
+
+
+        <a href="#" class="title__btn">ВСЕ МАРКИ</a>
+
+      </div>
+
+
+      <div class="mark__row">
+
+        <div class="mark__col">
+          <div class="mark__item">
+            <div class="mark__buk">A</div>
+
+            <div class="mark__item-wrap">
+
+              <a href="#" class="mark__name">Acura</a>
+              <a href="#" class="mark__name">Alfa Romeo</a>
+              <a href="#" class="mark__name">Audi</a>
+            </div>
+
+          </div>
+          <div class="mark__item">
+            <div class="mark__buk">A</div>
+
+            <div class="mark__item-wrap">
+
+              <a href="#" class="mark__name">Acura</a>
+              <a href="#" class="mark__name">Alfa Romeo</a>
+              <a href="#" class="mark__name">Audi</a>
+            </div>
+
+
+          </div>
+          <div class="mark__item">
+            <div class="mark__buk">A</div>
+
+            <div class="mark__item-wrap">
+
+              <a href="#" class="mark__name">Acura</a>
+              <a href="#" class="mark__name">Alfa Romeo</a>
+              <a href="#" class="mark__name">Audi</a>
+            </div>
+
+
+          </div>
+
+        </div>
+        <div class="mark__col">
+          <div class="mark__item">
+            <div class="mark__buk">A</div>
+
+            <div class="mark__item-wrap">
+
+              <a href="#" class="mark__name">Acura</a>
+              <a href="#" class="mark__name">Alfa Romeo</a>
+              <a href="#" class="mark__name">Audi</a>
+            </div>
+
+
+          </div>
+          <div class="mark__item">
+            <div class="mark__buk">A</div>
+
+            <div class="mark__item-wrap">
+
+              <a href="#" class="mark__name">Acura</a>
+              <a href="#" class="mark__name">Alfa Romeo</a>
+              <a href="#" class="mark__name">Audi</a>
+            </div>
+
+
+          </div>
+          <div class="mark__item">
+            <div class="mark__buk">A</div>
+
+            <div class="mark__item-wrap">
+
+              <a href="#" class="mark__name">Acura</a>
+              <a href="#" class="mark__name">Alfa Romeo</a>
+              <a href="#" class="mark__name">Audi</a>
+            </div>
+
+
+          </div>
+
+        </div>
+        <div class="mark__col">
+          <div class="mark__item">
+            <div class="mark__buk">A</div>
+
+            <div class="mark__item-wrap">
+
+              <a href="#" class="mark__name">Acura</a>
+              <a href="#" class="mark__name">Alfa Romeo</a>
+              <a href="#" class="mark__name">Audi</a>
+            </div>
+
+
+          </div>
+          <div class="mark__item">
+            <div class="mark__buk">A</div>
+
+            <div class="mark__item-wrap">
+
+              <a href="#" class="mark__name">Acura</a>
+              <a href="#" class="mark__name">Alfa Romeo</a>
+              <a href="#" class="mark__name">Audi</a>
+            </div>
+
+
+          </div>
+          <div class="mark__item">
+            <div class="mark__buk">A</div>
+
+            <div class="mark__item-wrap">
+
+              <a href="#" class="mark__name">Acura</a>
+              <a href="#" class="mark__name">Alfa Romeo</a>
+              <a href="#" class="mark__name">Audi</a>
+            </div>
+
+
+          </div>
+
+        </div>
+        <div class="mark__col">
+          <div class="mark__item">
+            <div class="mark__buk">A</div>
+
+            <div class="mark__item-wrap">
+
+              <a href="#" class="mark__name">Acura</a>
+              <a href="#" class="mark__name">Alfa Romeo</a>
+              <a href="#" class="mark__name">Audi</a>
+            </div>
+
+
+          </div>
+          <div class="mark__item">
+            <div class="mark__buk">A</div>
+
+            <div class="mark__item-wrap">
+
+              <a href="#" class="mark__name">Acura</a>
+              <a href="#" class="mark__name">Alfa Romeo</a>
+              <a href="#" class="mark__name">Audi</a>
+            </div>
+
+
+          </div>
+          <div class="mark__item">
+            <div class="mark__buk">A</div>
+
+            <div class="mark__item-wrap">
+
+              <a href="#" class="mark__name">Acura</a>
+              <a href="#" class="mark__name">Alfa Romeo</a>
+              <a href="#" class="mark__name">Audi</a>
+            </div>
+
+
+          </div>
+
+        </div>
+        <div class="mark__col">
+          <div class="mark__item">
+            <div class="mark__buk">A</div>
+
+
+
+            <div class="mark__item-wrap">
+
+              <a href="#" class="mark__name">Acura</a>
+              <a href="#" class="mark__name">Alfa Romeo</a>
+              <a href="#" class="mark__name">Audi</a>
+            </div>
+
+
+          </div>
+          <div class="mark__item">
+            <div class="mark__buk">A</div>
+
+            <div class="mark__item-wrap">
+
+              <a href="#" class="mark__name">Acura</a>
+              <a href="#" class="mark__name">Alfa Romeo</a>
+              <a href="#" class="mark__name">Audi</a>
+            </div>
+
+
+          </div>
+          <div class="mark__item">
+            <div class="mark__buk">A</div>
+
+            <div class="mark__item-wrap">
+
+              <a href="#" class="mark__name">Acura</a>
+              <a href="#" class="mark__name">Alfa Romeo</a>
+              <a href="#" class="mark__name">Audi</a>
+            </div>
+
+
+          </div>
+
+        </div>
+
+
+      </div>
+
+
+    </div>
+  </div>
+</div> {% endcomment %}
+
+
+
+
+
+<div class="cats-home">
+  <div class="container">
+    <div class="cats-home__inner">
+      <div class="title__wrapper">
+
+        <h3 class="title">Подбор по категориям</h3>
+
+
+        <a href="{% url 'catalog' %}" class="title__btn">Все категории</a>
+
+      </div>
+
+      <div class="cats-home__row">
+
+        {% for cat in categorys_home %}
+
+
+        <a href="{{ cat.get_absolute_url }}" class="cats-home__item">
+          <h4 class="cats-home__title">{{ cat.name }}</h4>
+          {% if cat.image %}
+          <img src="{{ cat.image.url }}" alt="{{ cat.name }}" class="cats-home__img">
+          {% endif %}
+        </a>
+
+        {% endfor %}
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<div class="hits">
+  <div class="container">
+    <div class="hits__inner">
+      <div class="title__wrapper">
+
+        <h3 class="title">Популярные товары</h3>
+
+
+
+
+      </div>
+
+      <div class="hits__slider">
+
+        {% include 'components/product_list.html' with slider='' products=hit_products big='product-list__item--big'
+        size='350x350' %}
+
+
+      </div>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+<div class="about">
+  <div class="container">
+    <div class="about__inner">
+      <div class="about__left">
+        <div class="title__wrapper">
+
+          <h3 class="title">О нашем магазине</h3>
+
+
+
+
+        </div>
+
+        <div class="about__text-wrap">
+
+          {% if setup.text %}
+
+          {{ setup.text | safe }}
+
+          {% endif %}
+        </div>
+      </div>
+
+      <div class="about__right">
+        <div class="title__wrapper">
+
+          <h3 class="title">Новости</h3>
+
+
+          <a href="{% url 'blog' %}" class="title__btn">Все новости</a>
+
+        </div>
+
+        <div class="about__wrapper">
+
+          {% for new in news %}
+          <div class="about__item">
+
+            {% thumbnail new.image "286x154" format="WEBP" crop="center" as im %}
+            <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" alt="{{ new.name }}"
+              class="about__img">
+            {% endthumbnail %}
+
+
+            <p class="about__date">{{ new.create_at }}</p>
+            <a href="{{ new.get_absolute_url }}" class="about__title">{{ new.name }}</a>
+          </div>
+          {% endfor %}
+
+
+
+        </div>
+
+      </div>
+
+
+    </div>
+  </div>
+</div>
+
+
+<div class="mailing">
+  <div class="container">
+    <div class="mailing__inner">
+
+      <div class="mailing__left">
+
+        <svg width="146" height="82" viewBox="0 0 146 82" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M122.25 14.5209H55.75C53.5492 14.5298 51.4422 15.1627 49.886 16.282C48.3298 17.4014 47.45 18.917 47.4375 20.5V61.5C47.45 63.083 48.3298 64.5987 49.886 65.718C51.4422 66.8374 53.5492 67.4702 55.75 67.4792H122.25C124.451 67.4702 126.558 66.8374 128.114 65.718C129.67 64.5987 130.55 63.083 130.562 61.5V20.5C130.55 18.917 129.67 17.4014 128.114 16.282C126.558 15.1627 124.451 14.5298 122.25 14.5209ZM55.75 19.6459H122.25C122.565 19.6459 122.867 19.7359 123.09 19.8961C123.312 20.0562 123.438 20.2735 123.438 20.5V25.7617L89 38.13L54.5625 25.7617V20.5C54.5625 20.2735 54.6876 20.0562 54.9103 19.8961C55.133 19.7359 55.4351 19.6459 55.75 19.6459ZM122.25 62.3542H55.75C55.4351 62.3542 55.133 62.2642 54.9103 62.104C54.6876 61.9438 54.5625 61.7266 54.5625 61.5V31.4675L87.385 43.2892C87.8864 43.4696 88.4394 43.5635 89 43.5635C89.5606 43.5635 90.1136 43.4696 90.615 43.2892L123.438 31.4675V61.5C123.438 61.7266 123.312 61.9438 123.09 62.104C122.867 62.2642 122.565 62.3542 122.25 62.3542Z"
+            fill="#FCBE06" />
+          <line x1="49" y1="58.5" x2="37" y2="58.5" stroke="#FCBE06" stroke-width="5" />
+          <line x1="49" y1="58.5" x2="37" y2="58.5" stroke="#FCBE06" stroke-width="5" />
+          <line x1="49" y1="58.5" x2="37" y2="58.5" stroke="#FCBE06" stroke-width="5" />
+          <line x1="52" y1="24.5" x2="32" y2="24.5" stroke="#FCBE06" stroke-width="5" />
+          <line x1="52" y1="24.5" x2="32" y2="24.5" stroke="#FCBE06" stroke-width="5" />
+          <line x1="52" y1="24.5" x2="32" y2="24.5" stroke="#FCBE06" stroke-width="5" />
+          <line x1="42" y1="40.5" y2="40.5" stroke="#B1B1B1" stroke-width="5" />
+          <line x1="24" y1="24.5" x2="18" y2="24.5" stroke="#B1B1B1" stroke-width="5" />
+          <line x1="24" y1="24.5" x2="18" y2="24.5" stroke="#B1B1B1" stroke-width="5" />
+        </svg>
+
+
+        <div class="mailing__wrap">
+          <p class="mailing__title">Подписаться на рассылку</p>
+          <p class="mailing__desc">И быть в курсе все новостей и акций</p>
+        </div>
+
+
+      </div>
+
+
+      <div class="mailing__right">
+        <form action="#" class="mailing__form">
+          <input type="text" class="mailing__input" name="rmail" placeholder="E-mail">
+          <button class="mailing__btn">подписаться</button>
+
+
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M19 4.25H5C4.53668 4.25263 4.09309 4.43784 3.76546 4.76546C3.43784 5.09309 3.25263 5.53668 3.25 6V18C3.25263 18.4633 3.43784 18.9069 3.76546 19.2345C4.09309 19.5622 4.53668 19.7474 5 19.75H19C19.4633 19.7474 19.9069 19.5622 20.2345 19.2345C20.5622 18.9069 20.7474 18.4633 20.75 18V6C20.7474 5.53668 20.5622 5.09309 20.2345 4.76546C19.9069 4.43784 19.4633 4.25263 19 4.25ZM5 5.75H19C19.0663 5.75 19.1299 5.77634 19.1768 5.82322C19.2237 5.87011 19.25 5.9337 19.25 6V7.54L12 11.16L4.75 7.54V6C4.75 5.9337 4.77634 5.87011 4.82322 5.82322C4.87011 5.77634 4.9337 5.75 5 5.75ZM19 18.25H5C4.9337 18.25 4.87011 18.2237 4.82322 18.1768C4.77634 18.1299 4.75 18.0663 4.75 18V9.21L11.66 12.67C11.7656 12.7228 11.882 12.7503 12 12.7503C12.118 12.7503 12.2344 12.7228 12.34 12.67L19.25 9.21V18C19.25 18.0663 19.2237 18.1299 19.1768 18.1768C19.1299 18.2237 19.0663 18.25 19 18.25Z"
+              fill="#B2B2B2" />
+          </svg>
+
+
+        </form>
+
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+{% endblock %}
